@@ -100,13 +100,14 @@ zoom = Vector2(3.5, 3.5)
 position_smoothing_enabled = true
 position_smoothing_speed = 6.0
 
-[node name="AnimatedSprite2D_b" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(7, -5)
 scale = Vector2(0.954545, 0.954545)
 sprite_frames = SubResource("SpriteFrames_emsgu")
-animation = &"jump"
+animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.324681
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)

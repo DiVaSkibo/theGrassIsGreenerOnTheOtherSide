@@ -1,14 +1,16 @@
 extends CharacterBody2D
 
+#		CONST
+pass
 
+#		VAR
 @export_range(0, 1000) var SPEED: int = 150
 @export_range(-400, 0) var JUMP_HEIGHT: int = -450
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-#@onready var player = $AnimatedSprite2D_b
-@onready var player_animation = $AnimatedSprite2D_b
 
 
+#		FUNC
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -30,18 +32,22 @@ func _physics_process(delta):
 	
 	# flip_h sprite
 	if direction > 0:
-		player_animation.flip_h = false
+		$AnimatedSprite2D.flip_h = false
 	elif direction < 0:
-		player_animation.flip_h = true
+		$AnimatedSprite2D.flip_h = true
 
 	# play animation
 	if is_on_floor():
 		if direction == 0:
-			player_animation.play("idle")
+			$AnimatedSprite2D.play("idle")
 		else:
-			player_animation.play("run")
+			$AnimatedSprite2D.play("run")
 	else:
-		player_animation.play("jump")
+		$AnimatedSprite2D.play("jump")
 	
-
 	move_and_slide()
+
+
+#		SIGNAL
+pass
+
