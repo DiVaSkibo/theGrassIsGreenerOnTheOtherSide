@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://y1q38bchnj74"]
+
+[ext_resource type="PackedScene" uid="uid://lhug5n4b1x8b" path="res://scenes/mc_witch.tscn" id="1_e187p"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_utusd"]
+
+[node name="movement_test" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_top = 362.0
+offset_right = 1146.0
+offset_bottom = 402.0
+color = Color(0.72549, 0.886275, 0.745098, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, 364)
+shape = SubResource("WorldBoundaryShape2D_utusd")
+
+[node name="mc_witch" parent="." instance=ExtResource("1_e187p")]
+position = Vector2(26, 311)
