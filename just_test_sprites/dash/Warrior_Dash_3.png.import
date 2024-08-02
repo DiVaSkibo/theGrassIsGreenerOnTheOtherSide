@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwti3x8e48xcs"
-path="res://.godot/imported/Warrior_Run_5.png-1e134244fbe521efe94394da27dc7ce4.ctex"
+uid="uid://cd8m01fenik10"
+path="res://.godot/imported/Warrior_Dash_3.png-ece723f56e0902b2496e4359759df1c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://just_test_sprites/run/Warrior_Run_5.png"
-dest_files=["res://.godot/imported/Warrior_Run_5.png-1e134244fbe521efe94394da27dc7ce4.ctex"]
+source_file="res://just_test_sprites/dash/Warrior_Dash_3.png"
+dest_files=["res://.godot/imported/Warrior_Dash_3.png-ece723f56e0902b2496e4359759df1c1.ctex"]
 
 [params]
 

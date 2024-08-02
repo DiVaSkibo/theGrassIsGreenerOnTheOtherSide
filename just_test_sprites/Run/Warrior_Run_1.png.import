@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bip3s623cstuh"
-path="res://.godot/imported/Warrior_Run_1.png-18da83ad2c0e328c9a615d315eaaf40a.ctex"
+path="res://.godot/imported/Warrior_Run_1.png-266e7e85be9f675fcd99f2f1a42ded6e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://just_test_sprites/Run/Warrior_Run_1.png"
-dest_files=["res://.godot/imported/Warrior_Run_1.png-18da83ad2c0e328c9a615d315eaaf40a.ctex"]
+source_file="res://just_test_sprites/run/Warrior_Run_1.png"
+dest_files=["res://.godot/imported/Warrior_Run_1.png-266e7e85be9f675fcd99f2f1a42ded6e.ctex"]
 
 [params]
 
