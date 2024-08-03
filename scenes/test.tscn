@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbv700opojca3"]
+
+[ext_resource type="PackedScene" uid="uid://bh34bfnuu6xhn" path="res://scenes/enemy_2.tscn" id="1_5ps72"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3rvhb"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_left = 3.0
+offset_top = 575.0
+offset_right = 1148.0
+offset_bottom = 647.0
+color = Color(0, 1, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(70, 575)
+shape = SubResource("WorldBoundaryShape2D_3rvhb")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_5ps72")]
+position = Vector2(271, 497)
