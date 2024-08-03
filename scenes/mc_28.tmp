@@ -1,0 +1,78 @@
+[gd_scene load_steps=13 format=3 uid="uid://lhug5n4b1x8b"]
+
+[ext_resource type="Script" path="res://scripts/mc_witch_movement.gd" id="1_3au2p"]
+[ext_resource type="Texture2D" uid="uid://lnri5uwvu8gu" path="res://just_test_sprites/Idle1.png" id="2_5ujip"]
+[ext_resource type="Texture2D" uid="uid://b1ob878mhxqfm" path="res://just_test_sprites/Idle2.png" id="3_t4imf"]
+[ext_resource type="Texture2D" uid="uid://c3pjairq2dmcq" path="res://just_test_sprites/Idle3.png" id="4_4bepn"]
+[ext_resource type="Texture2D" uid="uid://wxvlyjqjbelk" path="res://just_test_sprites/Idle4.png" id="5_wleqy"]
+[ext_resource type="Texture2D" uid="uid://cme3lsrpknshl" path="res://just_test_sprites/Idle5.png" id="6_rjdkk"]
+[ext_resource type="Texture2D" uid="uid://ckbh2fup234p4" path="res://just_test_sprites/Idle6.png" id="7_p7awg"]
+[ext_resource type="Texture2D" uid="uid://c6chgunr88wdp" path="res://just_test_sprites/Idle7.png" id="8_lfft4"]
+[ext_resource type="Texture2D" uid="uid://b4s817pp6bpqg" path="res://just_test_sprites/Idle8.png" id="9_e6co7"]
+[ext_resource type="Texture2D" uid="uid://bht10h6cyhsgg" path="res://just_test_sprites/Idle9.png" id="10_vwb4m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_emsgu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5ujip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_t4imf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4bepn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wleqy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_rjdkk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_p7awg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lfft4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_e6co7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_vwb4m")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3krfp"]
+height = 54.0
+
+[node name="mc_witch" type="CharacterBody2D"]
+script = ExtResource("1_3au2p")
+SPEED = 100
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -10.0
+offset_top = -15.0
+offset_right = 10.0
+offset_bottom = 15.0
+color = Color(0, 1, 0, 1)
+
+[node name="AnimatedSprite2D_b" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_emsgu")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.734767
+
+[node name="AnimatedSprite2D_l" type="AnimatedSprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_3krfp")
