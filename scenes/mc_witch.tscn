@@ -16,26 +16,26 @@
 [ext_resource type="Texture2D" uid="uid://dfjqetw6q0fgr" path="res://just_test_sprites/idle/Warrior_Idle_4.png" id="5_fan3j"]
 [ext_resource type="Texture2D" uid="uid://ch32yd73g4ban" path="res://just_test_sprites/Attack/Warrior_Attack_4.png" id="5_k8m10"]
 [ext_resource type="Texture2D" uid="uid://gslihitba7cw" path="res://just_test_sprites/Jump/Warrior_Jump_3.png" id="5_xi618"]
-[ext_resource type="Texture2D" uid="uid://bip3s623cstuh" path="res://just_test_sprites/run/Warrior_Run_1.png" id="6_2loc2"]
+[ext_resource type="Texture2D" uid="uid://bip3s623cstuh" path="res://just_test_sprites/Run/Warrior_Run_1.png" id="6_2loc2"]
 [ext_resource type="Texture2D" uid="uid://dx5hx3i7c14" path="res://just_test_sprites/dash/Warrior_Dash_5.png" id="6_6kngk"]
 [ext_resource type="Texture2D" uid="uid://c866jb41to0bt" path="res://just_test_sprites/idle/Warrior_Idle_5.png" id="6_46qwd"]
 [ext_resource type="Texture2D" uid="uid://b5kw12joox3gg" path="res://just_test_sprites/Attack/Warrior_Attack_5.png" id="6_y75dw"]
 [ext_resource type="Texture2D" uid="uid://o2d7hkelxlok" path="res://just_test_sprites/dash/Warrior_Dash_6.png" id="7_af26w"]
-[ext_resource type="Texture2D" uid="uid://dpv4tbrmd6ljt" path="res://just_test_sprites/run/Warrior_Run_2.png" id="7_ei167"]
+[ext_resource type="Texture2D" uid="uid://dpv4tbrmd6ljt" path="res://just_test_sprites/Run/Warrior_Run_2.png" id="7_ei167"]
 [ext_resource type="Texture2D" uid="uid://r8edy32qfk87" path="res://just_test_sprites/idle/Warrior_Idle_6.png" id="7_luhfc"]
 [ext_resource type="Texture2D" uid="uid://c3rbp8ltj2tot" path="res://just_test_sprites/Attack/Warrior_Attack_6.png" id="7_un52j"]
-[ext_resource type="Texture2D" uid="uid://brogch7083hpx" path="res://just_test_sprites/run/Warrior_Run_3.png" id="8_c2n7n"]
+[ext_resource type="Texture2D" uid="uid://brogch7083hpx" path="res://just_test_sprites/Run/Warrior_Run_3.png" id="8_c2n7n"]
 [ext_resource type="Texture2D" uid="uid://36o64rkhs6i5" path="res://just_test_sprites/dash/Warrior_Dash_7.png" id="8_ctwwy"]
 [ext_resource type="Texture2D" uid="uid://bia77q4puvrwh" path="res://just_test_sprites/Attack/Warrior_Attack_7.png" id="8_viia7"]
-[ext_resource type="Texture2D" uid="uid://cwwcqcs70v4r3" path="res://just_test_sprites/run/Warrior_Run_4.png" id="9_g0iom"]
+[ext_resource type="Texture2D" uid="uid://cwwcqcs70v4r3" path="res://just_test_sprites/Run/Warrior_Run_4.png" id="9_g0iom"]
 [ext_resource type="Texture2D" uid="uid://dhvb30w0d382c" path="res://just_test_sprites/Attack/Warrior_Attack_8.png" id="9_og8uu"]
-[ext_resource type="Texture2D" uid="uid://bwti3x8e48xcs" path="res://just_test_sprites/run/Warrior_Run_5.png" id="10_ir7oj"]
+[ext_resource type="Texture2D" uid="uid://bwti3x8e48xcs" path="res://just_test_sprites/Run/Warrior_Run_5.png" id="10_ir7oj"]
 [ext_resource type="Texture2D" uid="uid://cbtjsb7xnufq1" path="res://just_test_sprites/Attack/Warrior_Attack_9.png" id="10_qr63d"]
-[ext_resource type="Texture2D" uid="uid://ypxvsa3xq53" path="res://just_test_sprites/run/Warrior_Run_6.png" id="11_llbih"]
+[ext_resource type="Texture2D" uid="uid://ypxvsa3xq53" path="res://just_test_sprites/Run/Warrior_Run_6.png" id="11_llbih"]
 [ext_resource type="Texture2D" uid="uid://btajexbree8t6" path="res://just_test_sprites/Attack/Warrior_Attack_10.png" id="11_msdko"]
 [ext_resource type="Texture2D" uid="uid://ogg23e5bvoes" path="res://just_test_sprites/Attack/Warrior_Attack_11.png" id="12_d7rk1"]
-[ext_resource type="Texture2D" uid="uid://cshqcfgr128dq" path="res://just_test_sprites/run/Warrior_Run_7.png" id="12_p37is"]
-[ext_resource type="Texture2D" uid="uid://cwur6nnunkb1u" path="res://just_test_sprites/run/Warrior_Run_8.png" id="13_31yft"]
+[ext_resource type="Texture2D" uid="uid://cshqcfgr128dq" path="res://just_test_sprites/Run/Warrior_Run_7.png" id="12_p37is"]
+[ext_resource type="Texture2D" uid="uid://cwur6nnunkb1u" path="res://just_test_sprites/Run/Warrior_Run_8.png" id="13_31yft"]
 [ext_resource type="Texture2D" uid="uid://bmsa82qi4spxs" path="res://just_test_sprites/Attack/Warrior_Attack_12.png" id="13_pje26"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_emsgu"]
@@ -200,6 +200,12 @@ position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_3krfp")
 
 [node name="DashCoolDown" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="DashDuration" type="Timer" parent="."]
+wait_time = 0.4
 one_shot = true
 
 [connection signal="timeout" from="DashCoolDown" to="." method="_on_dash_cool_down_timeout"]
+[connection signal="timeout" from="DashDuration" to="." method="_on_dash_duration_timeout"]
