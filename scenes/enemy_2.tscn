@@ -1,7 +1,7 @@
 [gd_scene load_steps=31 format=3 uid="uid://bh34bfnuu6xhn"]
 
 [ext_resource type="Script" path="res://scripts/enemy_2.gd" id="1_rtgcm"]
-[ext_resource type="Texture2D" uid="uid://qipldlerxs1v" path="res://just_test_sprites/enemy_sprite_sheet_by_bugrasarikaya_dfb98st-fullview.png" id="2_dayxa"]
+[ext_resource type="Texture2D" uid="uid://dp1elpd834dbt" path="res://just_test_sprites/enemy_sprite_sheet_by_bugrasarikaya_dfb98st-fullview.png" id="2_dayxa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_466xh"]
 atlas = ExtResource("2_dayxa")
@@ -189,17 +189,19 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v0g0i"]
-radius = 23.0
-height = 112.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fx1pu"]
+radius = 0.0
+height = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eslu6"]
 radius = 246.1
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_bey2x"]
-radius = 70.2282
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q1x38"]
+radius = 22.7601
+height = 112.445
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="enemy_2" type="CharacterBody2D"]
+scale = Vector2(0.39543, 0.39543)
 script = ExtResource("1_rtgcm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -208,19 +210,25 @@ animation = &"attack"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 7)
-shape = SubResource("CapsuleShape2D_v0g0i")
+position = Vector2(0, 63.2224)
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_fx1pu")
 
 [node name="DetectionArea" type="Area2D" parent="."]
+scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_eslu6")
 
 [node name="AttackArea" type="Area2D" parent="."]
+scale = Vector2(1, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-shape = SubResource("CircleShape2D_bey2x")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(0, 7)
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_q1x38")
 
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
