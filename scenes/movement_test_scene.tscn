@@ -48,35 +48,35 @@ _data = {
 [node name="movement_test" type="Node2D"]
 position = Vector2(41, 57)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="floor" type="StaticBody2D" parent="."]
 position = Vector2(-40, 184)
 collision_layer = 7
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+[node name="ColorRect" type="ColorRect" parent="floor"]
 offset_top = 358.0
 offset_right = 1146.0
 offset_bottom = 398.0
 color = Color(0.66, 0.66, 0.66, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="StaticBody2D"]
+[node name="ColorRect2" type="ColorRect" parent="floor"]
 offset_top = 366.0
 offset_right = 1146.0
 offset_bottom = 406.0
 color = Color(0.57, 0.57, 0.57, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
 position = Vector2(-1, 364)
 shape = SubResource("WorldBoundaryShape2D_utusd")
 
 [node name="mc_witch" parent="." instance=ExtResource("1_e187p")]
 position = Vector2(3, 489)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="floor2" type="StaticBody2D" parent="."]
 position = Vector2(116, 305)
 scale = Vector2(4.97299, 4.97299)
 collision_layer = 7
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D2"]
+[node name="ColorRect" type="ColorRect" parent="floor2"]
 offset_left = -10.0
 offset_top = -10.0
 offset_right = 32.0
@@ -84,12 +84,12 @@ offset_bottom = -4.0
 color = Color(1, 1, 0, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor2"]
 position = Vector2(11, -7)
 shape = SubResource("RectangleShape2D_xhjel")
 one_way_collision = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="floor2"]
 libraries = {
 "": SubResource("AnimationLibrary_p0ubx")
 }

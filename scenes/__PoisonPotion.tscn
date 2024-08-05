@@ -24,7 +24,7 @@ radius = 7.0
 
 [node name="poison_potion" type="RigidBody2D"]
 collision_layer = 4
-collision_mask = 6
+collision_mask = 4
 physics_material_override = SubResource("PhysicsMaterial_aicsh")
 script = ExtResource("1_qf04c")
 

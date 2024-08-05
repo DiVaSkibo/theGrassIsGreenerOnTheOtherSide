@@ -26,11 +26,19 @@ func _physics_process(delta):
 			velocity.y = lerp(prev_velocity.y, velocity.y, 0.8)
 
 		# Attack
-		if Input.is_action_just_pressed("attack"):
+		if Input.is_action_just_pressed("attack") and $AttackCoolDown.is_stopped():
 			var pp = POISON_POTION.instantiate()
+			match $AnimatedSprite2D.animation:
+				"run":
+					pp.speed_x = speed
+				"jump":
+					pp.speed_y = jump_height / 4.0
+			if $AnimatedSprite2D.flip_h:
+				pp.direction = -1
 			get_parent().add_child(pp)
 			pp.position.x = position.x
 			pp.position.y = position.y - 50
+			$AttackCoolDown.start()
 
 		# Jump
 		if Input.is_action_just_pressed("jump") and is_on_floor():

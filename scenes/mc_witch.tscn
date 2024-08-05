@@ -210,5 +210,9 @@ one_shot = true
 wait_time = 0.4
 one_shot = true
 
+[node name="AttackCoolDown" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true
+
 [connection signal="timeout" from="DashCoolDown" to="." method="_on_dash_cool_down_timeout"]
 [connection signal="timeout" from="DashDuration" to="." method="_on_dash_duration_timeout"]
