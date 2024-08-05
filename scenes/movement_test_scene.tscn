@@ -49,6 +49,8 @@ _data = {
 position = Vector2(41, 57)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-40, 184)
+collision_layer = 7
 
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
 offset_top = 358.0
@@ -67,10 +69,12 @@ position = Vector2(-1, 364)
 shape = SubResource("WorldBoundaryShape2D_utusd")
 
 [node name="mc_witch" parent="." instance=ExtResource("1_e187p")]
-position = Vector2(26, 311)
+position = Vector2(3, 489)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(116, 305)
+scale = Vector2(4.97299, 4.97299)
+collision_layer = 7
 
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D2"]
 offset_left = -10.0

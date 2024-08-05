@@ -1,12 +1,13 @@
 extends CharacterBody2D
 
 #		VAR
-@export_range(0, 1000) var speed := 180
-@export_range(-400, 0) var jump_height := -380
-@export_range(0, 1000) var dash_speed := 350
-@export_range(0.0, 2.0) var dash_duration := 0.3
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+@export_range(0, 2000) var speed := 700
+@export_range(-2000, 0) var jump_height := -1200
+@export_range(0, 2000) var dash_speed := 1200
+var gravity = 3 * ProjectSettings.get_setting("physics/2d/default_gravity")
 var prev_velocity := Vector2.ZERO
+
+const POISON_POTION = preload("res://scenes/__PoisonPotion.tscn")
 
 
 #		FUNC
@@ -21,30 +22,36 @@ func _physics_process(delta):
 		# Add the gravity.
 		if not is_on_floor():
 			velocity.y += gravity * delta
-			velocity.y = lerp(prev_velocity.y, velocity.y, 0.8) # air resistence in up_down
+			# air resistence in up_down
+			velocity.y = lerp(prev_velocity.y, velocity.y, 0.8)
 
-		# Handle jump.
+		# Attack
+		if Input.is_action_just_pressed("attack"):
+			var pp = POISON_POTION.instantiate()
+			get_parent().add_child(pp)
+			pp.position.x = position.x
+			pp.position.y = position.y - 50
+
+		# Jump
 		if Input.is_action_just_pressed("jump") and is_on_floor():
 			velocity.y = jump_height
 		elif Input.is_action_just_released("jump") and velocity.y < 0:
 			velocity.y *= 0.2
 
-		# Get the input direction and handle the movement/deceleration.
+		# Direction and Movement/Deceleration
 		var direction = Input.get_axis("left", "right")
 		if direction:
 			velocity.x = direction * speed
 		else:
 			velocity.x = move_toward(velocity.x, 0, speed)
 
-		# flip_h sprite
 		if direction > 0:
 			$AnimatedSprite2D.flip_h = false
 		elif direction < 0:
 			$AnimatedSprite2D.flip_h = true
 
-		# Play animation
+		# Animation
 		if Input.is_action_just_pressed("dash") and $DashDuration.is_stopped() and $DashCoolDown.is_stopped():
-			# start dash
 			velocity.x = dash_speed * direction
 			velocity.y = 0
 			$DashDuration.start()
@@ -63,12 +70,10 @@ func _physics_process(delta):
 
 
 #		SIGNAL
-# dash end
-func _on_dash_duration_timeout():
+func _on_dash_duration_timeout(): # dash end
 	velocity.x = 0
 	$DashCoolDown.start()
-# dash cool down end if mc is on the floor
-func _on_dash_cool_down_timeout():
+func _on_dash_cool_down_timeout(): # dash cool down end if mc is on the floor
 	if not is_on_floor():
 		$DashCoolDown.start()
 
