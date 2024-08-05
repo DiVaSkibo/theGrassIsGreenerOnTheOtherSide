@@ -18,4 +18,4 @@ config/icon="res://icon.svg"
 
 GlobalWorldEnvironment="*res://scenes/___GlobalWorldEnvironment.tscn"
 Config="*res://scripts/___config.gd"
-Transition="*res://scenes/__Transition.tscn"
+Transition="*res://scenes/___Transition.tscn"

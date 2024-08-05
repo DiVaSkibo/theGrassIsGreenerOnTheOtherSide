@@ -4,8 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://c2dmoe4e0fwdw" path="res://just_test_sprites/pngtree-speech-bubble-text-box-vector-png-image_12784601.png" id="2_1b1qt"]
 
 [node name="text_box" type="MarginContainer"]
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -228.0
 offset_right = 301.0
-offset_bottom = 337.0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 0
 script = ExtResource("1_m1xoc")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
@@ -26,8 +32,9 @@ theme_override_constants/margin_bottom = 100
 
 [node name="Label" type="Label" parent="MarginContainer"]
 layout_mode = 2
+size_flags_vertical = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 20
 vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
