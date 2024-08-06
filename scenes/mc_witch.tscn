@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://lhug5n4b1x8b"]
+[gd_scene load_steps=37 format=3 uid="uid://lhug5n4b1x8b"]
 
 [ext_resource type="Script" path="res://scripts/mc_witch_movement.gd" id="1_3au2p"]
 [ext_resource type="Texture2D" uid="uid://bvn2mo8o7ljve" path="res://just_test_sprites/dash/Warrior_Dash_1.png" id="2_1p4ao"]
@@ -32,11 +32,8 @@
 [ext_resource type="Texture2D" uid="uid://cpa1snc67le8f" path="res://just_test_sprites/Run/Warrior_Run_5.png" id="10_ir7oj"]
 [ext_resource type="Texture2D" uid="uid://drk3kikpn5ntl" path="res://just_test_sprites/Attack/Warrior_Attack_9.png" id="10_qr63d"]
 [ext_resource type="Texture2D" uid="uid://d22vv4dkeedsa" path="res://just_test_sprites/Run/Warrior_Run_6.png" id="11_llbih"]
-[ext_resource type="Texture2D" uid="uid://e0dkt1uu80pl" path="res://just_test_sprites/Attack/Warrior_Attack_10.png" id="11_msdko"]
-[ext_resource type="Texture2D" uid="uid://dusfytkoet0sm" path="res://just_test_sprites/Attack/Warrior_Attack_11.png" id="12_d7rk1"]
 [ext_resource type="Texture2D" uid="uid://urvesquwlnx3" path="res://just_test_sprites/Run/Warrior_Run_7.png" id="12_p37is"]
 [ext_resource type="Texture2D" uid="uid://cu33k1arrkdxy" path="res://just_test_sprites/Run/Warrior_Run_8.png" id="13_31yft"]
-[ext_resource type="Texture2D" uid="uid://datecr02ysb80" path="res://just_test_sprites/Attack/Warrior_Attack_12.png" id="13_pje26"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_emsgu"]
 animations = [{
@@ -67,19 +64,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("10_qr63d")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_msdko")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_d7rk1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_pje26")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
-"speed": 10.0
+"speed": 14.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -194,9 +182,8 @@ texture_filter = 1
 position = Vector2(5, -5)
 scale = Vector2(0.954545, 0.954545)
 sprite_frames = SubResource("SpriteFrames_emsgu")
-animation = &"idle"
+animation = &"attack"
 autoplay = "idle"
-frame_progress = 0.0919005
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
@@ -214,5 +201,6 @@ one_shot = true
 wait_time = 0.7
 one_shot = true
 
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="DashCoolDown" to="." method="_on_dash_cool_down_timeout"]
 [connection signal="timeout" from="DashDuration" to="." method="_on_dash_duration_timeout"]

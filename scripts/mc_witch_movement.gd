@@ -26,7 +26,7 @@ func _physics_process(delta):
 			velocity.y = lerp(prev_velocity.y, velocity.y, 0.8)
 
 		# Attack
-		if Input.is_action_just_pressed("attack") and $AttackCoolDown.is_stopped():
+		if Input.is_action_pressed("attack") and $AttackCoolDown.is_stopped():
 			var pp = POISON_POTION.instantiate()
 			match $AnimatedSprite2D.animation:
 				"run":
@@ -39,16 +39,19 @@ func _physics_process(delta):
 			pp.position.x = position.x
 			pp.position.y = position.y - 50
 			$AttackCoolDown.start()
+			$AnimatedSprite2D.play("attack")
 
 		# Jump
-		if Input.is_action_just_pressed("jump") and is_on_floor():
+		if Input.is_action_just_pressed("jump") and is_on_floor() and $AnimatedSprite2D.animation != "attack":
 			velocity.y = jump_height
-		elif Input.is_action_just_released("jump") and velocity.y < 0:
+		elif Input.is_action_just_released("jump") and velocity.y < 0 or $AnimatedSprite2D.animation == "attack" and velocity.y < 0:
 			velocity.y *= 0.2
 
 		# Direction and Movement/Deceleration
 		var direction = Input.get_axis("left", "right")
-		if direction:
+		if not direction or direction and is_on_floor() and $AnimatedSprite2D.animation != "attack":
+			velocity.x = move_toward(velocity.x, 0, speed)
+		elif direction:
 			velocity.x = direction * speed
 		else:
 			velocity.x = move_toward(velocity.x, 0, speed)
@@ -59,17 +62,17 @@ func _physics_process(delta):
 			$AnimatedSprite2D.flip_h = true
 
 		# Animation
-		if Input.is_action_just_pressed("dash") and $DashDuration.is_stopped() and $DashCoolDown.is_stopped():
+		if Input.is_action_just_pressed("dash") and $DashCoolDown.is_stopped() and $AnimatedSprite2D.animation != "attack":
 			velocity.x = dash_speed * direction
 			velocity.y = 0
 			$DashDuration.start()
 			$AnimatedSprite2D.play("dash")
-		elif is_on_floor():
+		elif is_on_floor() and $AnimatedSprite2D.animation != "attack":
 			if direction == 0:
 				$AnimatedSprite2D.play("idle")
 			else:
 				$AnimatedSprite2D.play("run")
-		else:
+		elif $AnimatedSprite2D.animation != "attack":
 			velocity.x = lerp(prev_velocity.x, velocity.x, 0.1) # air resistence in left_right
 			$AnimatedSprite2D.play("jump")
 
@@ -78,6 +81,11 @@ func _physics_process(delta):
 
 
 #		SIGNAL
+func _on_animated_sprite_2d_animation_finished():
+	match $AnimatedSprite2D.animation:
+		"attack":
+			$AnimatedSprite2D.play("idle")
+
 func _on_dash_duration_timeout(): # dash end
 	velocity.x = 0
 	$DashCoolDown.start()
