@@ -1,6 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://lhug5n4b1x8b"]
+[gd_scene load_steps=18 format=3 uid="uid://lhug5n4b1x8b"]
 
 [ext_resource type="Script" path="res://scripts/mc_witch_movement.gd" id="1_3au2p"]
+[ext_resource type="Texture2D" uid="uid://bwbbhe8qjuqlo" path="res://resources/assets/mc_witch/idle/frame0000.png" id="4_ddjiq"]
+[ext_resource type="Texture2D" uid="uid://b1y05cag6eap1" path="res://resources/assets/mc_witch/idle/frame0001.png" id="5_l5wpc"]
+[ext_resource type="Texture2D" uid="uid://b2f5rdvfkyby" path="res://resources/assets/mc_witch/idle/frame0002.png" id="6_y4b3t"]
+[ext_resource type="Texture2D" uid="uid://b25dxgwdxwegj" path="res://resources/assets/mc_witch/idle/frame0003.png" id="7_w8b1r"]
+[ext_resource type="Texture2D" uid="uid://bthrsa1enexwc" path="res://resources/assets/mc_witch/idle/frame0004.png" id="8_af8di"]
 [ext_resource type="Texture2D" uid="uid://cmvb3pbpa0il" path="res://resources/assets/mc_witch/walk/frame0001.png" id="27_ojxc2"]
 [ext_resource type="Texture2D" uid="uid://br7o2leby78pj" path="res://resources/assets/mc_witch/walk/frame0000.png" id="28_jgqv6"]
 [ext_resource type="Texture2D" uid="uid://bctqmnpiq1es5" path="res://resources/assets/mc_witch/walk/frame0002.png" id="29_p1jtv"]
@@ -31,11 +36,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("33_d2qnn")
+"texture": ExtResource("4_ddjiq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_l5wpc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_y4b3t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_w8b1r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_af8di")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 10.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -95,8 +112,9 @@ texture_filter = 1
 position = Vector2(-5.96046e-08, 0)
 scale = Vector2(0.0550164, 0.0550164)
 sprite_frames = SubResource("SpriteFrames_emsgu")
-animation = &"jump"
+animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.928399
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5.96046e-08)
