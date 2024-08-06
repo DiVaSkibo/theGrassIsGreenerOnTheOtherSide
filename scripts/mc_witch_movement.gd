@@ -8,9 +8,9 @@ const POISON_POTION = preload("res://scenes/__PoisonPotion.tscn")
 #		VAR
 @export_range(0, 6) var health := 6
 
-@export_range(0, 2000) var speed := 700
-@export_range(-2000, 0) var jump_height := -1200
-@export_range(0, 2000) var dash_speed := 1200
+@export_range(0, 2000) var speed := 520
+@export_range(-2000, 0) var jump_height := -1100
+@export_range(0, 2000) var dash_speed := 1100
 
 var gravity = 3 * ProjectSettings.get_setting("physics/2d/default_gravity")
 var prev_velocity := Vector2.ZERO
