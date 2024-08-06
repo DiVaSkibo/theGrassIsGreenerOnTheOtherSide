@@ -19,9 +19,7 @@ var prev_velocity := Vector2.ZERO
 #		FUNC
 func _ready():
 	for i in health:
-		$Health.find_child("1hp%s" % i).show()
-	for i in HEALTH - health:
-		$Health.find_child("0hp%s" % (HEALTH - i - 1)).show()
+		$Health.get_child(i).texture = load("res://just_test_sprites/1hp.png")
 
 func _physics_process(delta):
 	# Is dash activated
@@ -97,14 +95,12 @@ func hit(value : int):
 		if not health:
 			break
 		health -= 1
-		$Health.find_child("0hp%s" % health).show()
-		$Health.find_child("1hp%s" % health).hide()
+		$Health.get_child(health).texture = load("res://just_test_sprites/0hp.png")
 func heal(value: int):
 	for i in value:
 		if health == HEALTH:
 			break
-		$Health.find_child("0hp%s" % health).hide()
-		$Health.find_child("1hp%s" % health).show()
+		$Health.get_child(health).texture = load("res://just_test_sprites/1hp.png")
 		health += 1
 
 

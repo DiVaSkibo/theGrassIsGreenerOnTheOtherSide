@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://lhug5n4b1x8b"]
+[gd_scene load_steps=38 format=3 uid="uid://lhug5n4b1x8b"]
 
 [ext_resource type="Script" path="res://scripts/mc_witch_movement.gd" id="1_3au2p"]
 [ext_resource type="Texture2D" uid="uid://bvn2mo8o7ljve" path="res://just_test_sprites/dash/Warrior_Dash_1.png" id="2_1p4ao"]
@@ -34,7 +34,6 @@
 [ext_resource type="Texture2D" uid="uid://d22vv4dkeedsa" path="res://just_test_sprites/Run/Warrior_Run_6.png" id="11_llbih"]
 [ext_resource type="Texture2D" uid="uid://urvesquwlnx3" path="res://just_test_sprites/Run/Warrior_Run_7.png" id="12_p37is"]
 [ext_resource type="Texture2D" uid="uid://cu33k1arrkdxy" path="res://just_test_sprites/Run/Warrior_Run_8.png" id="13_31yft"]
-[ext_resource type="Texture2D" uid="uid://bc0ygykjhew0u" path="res://just_test_sprites/1hp.png" id="35_lojcl"]
 [ext_resource type="Texture2D" uid="uid://kg5h0ej2372k" path="res://just_test_sprites/0hp.png" id="36_g4pd4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_emsgu"]
@@ -211,63 +210,27 @@ offset_bottom = 1104.51
 scale = Vector2(0.0218787, 0.0218787)
 columns = 6
 
-[node name="1hp0" type="TextureRect" parent="Health"]
-visible = false
-layout_mode = 2
-texture = ExtResource("35_lojcl")
-
-[node name="1hp1" type="TextureRect" parent="Health"]
-visible = false
-layout_mode = 2
-texture = ExtResource("35_lojcl")
-
-[node name="1hp2" type="TextureRect" parent="Health"]
-visible = false
-layout_mode = 2
-texture = ExtResource("35_lojcl")
-
-[node name="1hp3" type="TextureRect" parent="Health"]
-visible = false
-layout_mode = 2
-texture = ExtResource("35_lojcl")
-
-[node name="1hp4" type="TextureRect" parent="Health"]
-visible = false
-layout_mode = 2
-texture = ExtResource("35_lojcl")
-
-[node name="1hp5" type="TextureRect" parent="Health"]
-visible = false
-layout_mode = 2
-texture = ExtResource("35_lojcl")
-
-[node name="0hp0" type="TextureRect" parent="Health"]
-visible = false
+[node name="Point0" type="TextureRect" parent="Health"]
 layout_mode = 2
 texture = ExtResource("36_g4pd4")
 
-[node name="0hp1" type="TextureRect" parent="Health"]
-visible = false
+[node name="Point1" type="TextureRect" parent="Health"]
 layout_mode = 2
 texture = ExtResource("36_g4pd4")
 
-[node name="0hp2" type="TextureRect" parent="Health"]
-visible = false
+[node name="Point2" type="TextureRect" parent="Health"]
 layout_mode = 2
 texture = ExtResource("36_g4pd4")
 
-[node name="0hp3" type="TextureRect" parent="Health"]
-visible = false
+[node name="Point3" type="TextureRect" parent="Health"]
 layout_mode = 2
 texture = ExtResource("36_g4pd4")
 
-[node name="0hp4" type="TextureRect" parent="Health"]
-visible = false
+[node name="Point4" type="TextureRect" parent="Health"]
 layout_mode = 2
 texture = ExtResource("36_g4pd4")
 
-[node name="0hp5" type="TextureRect" parent="Health"]
-visible = false
+[node name="Point5" type="TextureRect" parent="Health"]
 layout_mode = 2
 texture = ExtResource("36_g4pd4")
 
