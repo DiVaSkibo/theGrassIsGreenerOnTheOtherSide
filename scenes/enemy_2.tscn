@@ -1,7 +1,7 @@
 [gd_scene load_steps=31 format=3 uid="uid://bh34bfnuu6xhn"]
 
 [ext_resource type="Script" path="res://scripts/enemy_2.gd" id="1_rtgcm"]
-[ext_resource type="Texture2D" uid="uid://dp1elpd834dbt" path="res://just_test_sprites/enemy_sprite_sheet_by_bugrasarikaya_dfb98st-fullview.png" id="2_dayxa"]
+[ext_resource type="Texture2D" uid="uid://6f6a6xhirqbx" path="res://just_test_sprites/enemy_sprite_sheet_by_bugrasarikaya_dfb98st-fullview.png" id="2_dayxa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_466xh"]
 atlas = ExtResource("2_dayxa")
@@ -201,7 +201,9 @@ radius = 22.7601
 height = 112.445
 
 [node name="enemy_2" type="CharacterBody2D"]
-scale = Vector2(0.39543, 0.39543)
+scale = Vector2(1.42466, 1.42466)
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_rtgcm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -211,21 +213,21 @@ autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 63.2224)
-scale = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_fx1pu")
 
 [node name="DetectionArea" type="Area2D" parent="."]
-scale = Vector2(1, 1)
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_eslu6")
 
 [node name="AttackArea" type="Area2D" parent="."]
-scale = Vector2(1, 1)
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="AttackArea"]
 position = Vector2(0, 7)
-scale = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_q1x38")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

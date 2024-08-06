@@ -90,12 +90,6 @@ func _physics_process(delta):
 	prev_velocity = velocity
 	move_and_slide()
 
-func hit(value : int):
-	for i in value:
-		if not health:
-			break
-		health -= 1
-		$Health.get_child(health).texture = load("res://just_test_sprites/0hp.png")
 func heal(value: int):
 	for i in value:
 		if health == HEALTH:
@@ -108,14 +102,19 @@ func heal(value: int):
 func _on_animated_sprite_2d_animation_finished():
 	match $AnimatedSprite2D.animation:
 		"attack":
-			hit(randi() % 2 + 1)
 			$AnimatedSprite2D.play("idle")
 
 func _on_dash_duration_timeout(): # dash end
 	velocity.x = 0
 	$DashCoolDown.start()
-	heal(randi() % 2 + 1)
 func _on_dash_cool_down_timeout(): # dash cool down end if mc is on the floor
 	if not is_on_floor():
 		$DashCoolDown.start()
+
+func _on_hit(value):
+	for i in value:
+		if not health:
+			break
+		health -= 1
+		$Health.get_child(health).texture = load("res://just_test_sprites/0hp.png")
 

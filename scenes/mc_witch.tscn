@@ -174,7 +174,6 @@ collision_mask = 2
 script = ExtResource("1_3au2p")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-scale = Vector2(1.92496, 2.01798)
 position_smoothing_enabled = true
 position_smoothing_speed = 6.0
 

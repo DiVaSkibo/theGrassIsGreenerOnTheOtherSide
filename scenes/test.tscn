@@ -7,10 +7,11 @@
 
 [node name="Node2D" type="Node2D"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-scale = Vector2(0.583138, 0.497926)
+[node name="floor" type="StaticBody2D" parent="."]
+scale = Vector2(1.1685, 0.997748)
+collision_layer = 7
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+[node name="ColorRect" type="ColorRect" parent="floor"]
 offset_left = 3.0
 offset_top = 575.0
 offset_right = 1148.0
@@ -18,12 +19,14 @@ offset_bottom = 647.0
 color = Color(0, 1, 1, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
 position = Vector2(70, 575)
 shape = SubResource("WorldBoundaryShape2D_3rvhb")
 
 [node name="enemy_2" parent="." instance=ExtResource("1_5ps72")]
-position = Vector2(312, 246)
+position = Vector2(601, 481)
 
 [node name="mc_witch" parent="." instance=ExtResource("2_3q7y6")]
-position = Vector2(61, 265)
+position = Vector2(84, 506)
+
+[connection signal="hit" from="enemy_2" to="mc_witch" method="_on_hit"]
