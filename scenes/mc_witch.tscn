@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://lhug5n4b1x8b"]
+[gd_scene load_steps=30 format=3 uid="uid://lhug5n4b1x8b"]
 
 [ext_resource type="Script" path="res://scripts/mc_witch_movement.gd" id="1_3au2p"]
 [ext_resource type="Texture2D" uid="uid://ckvah68pif6ar" path="res://resources/assets/mc_witch/grab/frame0000.png" id="2_0pjt5"]
@@ -12,6 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://lxl0nrfjyfn3" path="res://resources/assets/mc_witch/grab/frame0005.png" id="7_qn2hy"]
 [ext_resource type="Texture2D" uid="uid://b25dxgwdxwegj" path="res://resources/assets/mc_witch/idle/frame0003.png" id="7_w8b1r"]
 [ext_resource type="Texture2D" uid="uid://bthrsa1enexwc" path="res://resources/assets/mc_witch/idle/frame0004.png" id="8_af8di"]
+[ext_resource type="Texture2D" uid="uid://bqyxkwt0abae8" path="res://resources/assets/mc_witch/dash/frame0000.png" id="8_j7mf5"]
+[ext_resource type="Texture2D" uid="uid://bwxq45lyp1vj0" path="res://resources/assets/mc_witch/dash/frame0001.png" id="9_hnb5u"]
+[ext_resource type="Texture2D" uid="uid://cxrb42ycgpif1" path="res://resources/assets/mc_witch/dash/frame0002.png" id="10_aiycf"]
+[ext_resource type="Texture2D" uid="uid://cihiwl1pv44k7" path="res://resources/assets/mc_witch/dash/frame0003.png" id="11_fgn6c"]
+[ext_resource type="Texture2D" uid="uid://d2a6g1r7gb5gx" path="res://resources/assets/mc_witch/dash/frame0004.png" id="12_8c6dn"]
+[ext_resource type="Texture2D" uid="uid://dcdtjj8m61g5m" path="res://resources/assets/mc_witch/dash/frame0005.png" id="13_jun74"]
 [ext_resource type="Texture2D" uid="uid://cmvb3pbpa0il" path="res://resources/assets/mc_witch/walk/frame0001.png" id="27_ojxc2"]
 [ext_resource type="Texture2D" uid="uid://br7o2leby78pj" path="res://resources/assets/mc_witch/walk/frame0000.png" id="28_jgqv6"]
 [ext_resource type="Texture2D" uid="uid://bctqmnpiq1es5" path="res://resources/assets/mc_witch/walk/frame0002.png" id="29_p1jtv"]
@@ -64,11 +70,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("34_8kxl0")
+"texture": ExtResource("8_j7mf5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_hnb5u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_aiycf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_fgn6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_8c6dn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_jun74")
 }],
 "loop": true,
 "name": &"dash",
-"speed": 15.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -148,10 +169,9 @@ texture_filter = 1
 position = Vector2(-5.96046e-08, 0)
 scale = Vector2(0.0550164, 0.0550164)
 sprite_frames = SubResource("SpriteFrames_emsgu")
-animation = &"attack"
+animation = &"dash"
 autoplay = "idle"
-frame = 10
-frame_progress = 1.0
+frame_progress = 0.7246
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5.96046e-08)
