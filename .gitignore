@@ -2,10 +2,10 @@
 .godot/
 
 # Godot-specific ignores
+.import/
 *.import
 export.cfg
 export_presets.cfg
-*.ini
 
 # Imported translations (automatically generated from CSV files)
 *.translation
