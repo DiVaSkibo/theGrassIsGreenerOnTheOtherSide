@@ -1,23 +1,34 @@
-[gd_scene load_steps=33 format=3 uid="uid://lhug5n4b1x8b"]
+[gd_scene load_steps=44 format=3 uid="uid://lhug5n4b1x8b"]
 
 [ext_resource type="Script" path="res://scripts/mc_witch_movement.gd" id="1_3au2p"]
 [ext_resource type="Texture2D" uid="uid://ckvah68pif6ar" path="res://resources/assets/mc_witch/grab/frame0000.png" id="2_0pjt5"]
 [ext_resource type="Shader" path="res://resources/shaders/blink.gdshader" id="2_waded"]
 [ext_resource type="Texture2D" uid="uid://cd4ad4aacxd1h" path="res://resources/assets/mc_witch/grab/frame0001.png" id="3_03imw"]
+[ext_resource type="Texture2D" uid="uid://d4guaojxyf1b2" path="res://resources/assets/mc_witch/throwing_attack/frame0000.png" id="3_w13js"]
 [ext_resource type="Texture2D" uid="uid://mmvcvdpecanh" path="res://resources/assets/mc_witch/grab/frame0002.png" id="4_7xjh2"]
 [ext_resource type="Texture2D" uid="uid://bwbbhe8qjuqlo" path="res://resources/assets/mc_witch/idle/frame0000.png" id="4_ddjiq"]
+[ext_resource type="Texture2D" uid="uid://ehtyq3bbe364" path="res://resources/assets/mc_witch/throwing_attack/frame0001.png" id="4_fm1vx"]
+[ext_resource type="Texture2D" uid="uid://bo1h3vwta7l8b" path="res://resources/assets/mc_witch/throwing_attack/frame0002.png" id="5_eeyk5"]
 [ext_resource type="Texture2D" uid="uid://b1y05cag6eap1" path="res://resources/assets/mc_witch/idle/frame0001.png" id="5_l5wpc"]
 [ext_resource type="Texture2D" uid="uid://cse8unafyt1xf" path="res://resources/assets/mc_witch/grab/frame0003.png" id="5_wydkp"]
 [ext_resource type="Texture2D" uid="uid://hrddxyg37cnu" path="res://resources/assets/mc_witch/grab/frame0004.png" id="6_o2oty"]
+[ext_resource type="Texture2D" uid="uid://dtkyua58ueha1" path="res://resources/assets/mc_witch/throwing_attack/frame0003.png" id="6_qqm8y"]
 [ext_resource type="Texture2D" uid="uid://b2f5rdvfkyby" path="res://resources/assets/mc_witch/idle/frame0002.png" id="6_y4b3t"]
+[ext_resource type="Texture2D" uid="uid://w7bm6bsncsvt" path="res://resources/assets/mc_witch/throwing_attack/frame0004.png" id="7_evu0b"]
 [ext_resource type="Texture2D" uid="uid://lxl0nrfjyfn3" path="res://resources/assets/mc_witch/grab/frame0005.png" id="7_qn2hy"]
 [ext_resource type="Texture2D" uid="uid://b25dxgwdxwegj" path="res://resources/assets/mc_witch/idle/frame0003.png" id="7_w8b1r"]
+[ext_resource type="Texture2D" uid="uid://fpoi5ay7gdv8" path="res://resources/assets/mc_witch/throwing_attack/frame0005.png" id="8_14gkd"]
 [ext_resource type="Texture2D" uid="uid://bthrsa1enexwc" path="res://resources/assets/mc_witch/idle/frame0004.png" id="8_af8di"]
 [ext_resource type="Texture2D" uid="uid://bqyxkwt0abae8" path="res://resources/assets/mc_witch/dash/frame0000.png" id="8_j7mf5"]
+[ext_resource type="Texture2D" uid="uid://cy4bguvf3wqq7" path="res://resources/assets/mc_witch/throwing_attack/frame0006.png" id="9_f206f"]
 [ext_resource type="Texture2D" uid="uid://bwxq45lyp1vj0" path="res://resources/assets/mc_witch/dash/frame0001.png" id="9_hnb5u"]
+[ext_resource type="Texture2D" uid="uid://duu0wxdtf0lja" path="res://resources/assets/mc_witch/throwing_attack/frame0007.png" id="10_4loix"]
 [ext_resource type="Texture2D" uid="uid://cxrb42ycgpif1" path="res://resources/assets/mc_witch/dash/frame0002.png" id="10_aiycf"]
+[ext_resource type="Texture2D" uid="uid://dxg35kpagajul" path="res://resources/assets/mc_witch/throwing_attack/frame0008.png" id="11_ea44k"]
 [ext_resource type="Texture2D" uid="uid://cihiwl1pv44k7" path="res://resources/assets/mc_witch/dash/frame0003.png" id="11_fgn6c"]
 [ext_resource type="Texture2D" uid="uid://d2a6g1r7gb5gx" path="res://resources/assets/mc_witch/dash/frame0004.png" id="12_8c6dn"]
+[ext_resource type="Texture2D" uid="uid://c665qhphwdx41" path="res://resources/assets/mc_witch/throwing_attack/frame0009.png" id="12_hvlrg"]
+[ext_resource type="Texture2D" uid="uid://18558brl8lvs" path="res://resources/assets/mc_witch/throwing_attack/frame0010.png" id="13_hdxhc"]
 [ext_resource type="Texture2D" uid="uid://dcdtjj8m61g5m" path="res://resources/assets/mc_witch/dash/frame0005.png" id="13_jun74"]
 [ext_resource type="Texture2D" uid="uid://cmvb3pbpa0il" path="res://resources/assets/mc_witch/walk/frame0001.png" id="27_ojxc2"]
 [ext_resource type="Texture2D" uid="uid://br7o2leby78pj" path="res://resources/assets/mc_witch/walk/frame0000.png" id="28_jgqv6"]
@@ -31,48 +42,53 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1a1pr"]
 shader = ExtResource("2_waded")
-shader_parameter/blink_color = Color(0.835294, 0.211765, 0.0823529, 1)
+shader_parameter/blink_color = Color(0.999842, 0.353242, 1, 0.870588)
 shader_parameter/blink_intensity = 0.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_emsgu"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_0pjt5")
+"texture": ExtResource("3_w13js")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_03imw")
+"texture": ExtResource("4_fm1vx")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_7xjh2")
+"texture": ExtResource("5_eeyk5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_wydkp")
+"texture": ExtResource("6_qqm8y")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_o2oty")
+"texture": ExtResource("7_evu0b")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_qn2hy")
+"texture": ExtResource("8_14gkd")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_o2oty")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_wydkp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_7xjh2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_03imw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_0pjt5")
+"texture": ExtResource("9_f206f")
 }],
 "loop": false,
 "name": &"attack",
-"speed": 9.0
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_4loix")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ea44k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_hvlrg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_hdxhc")
+}],
+"loop": false,
+"name": &"attack_out",
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -210,7 +226,6 @@ tangential_accel_max = 50.0
 damping_max = 50.0
 scale_min = 2.0
 scale_max = 7.0
-color = Color(1, 0.231373, 0, 0.784314)
 
 [node name="mc_witch" type="CharacterBody2D"]
 scale = Vector2(3.50309, 3.50309)
@@ -228,7 +243,7 @@ material = SubResource("ShaderMaterial_1a1pr")
 position = Vector2(-5.96046e-08, 0)
 scale = Vector2(0.0550164, 0.0550164)
 sprite_frames = SubResource("SpriteFrames_emsgu")
-animation = &"idle"
+animation = &"attack_out"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
