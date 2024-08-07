@@ -237,7 +237,6 @@ shape = SubResource("CapsuleShape2D_3krfp")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(0, -15.1295)
-scale = Vector2(1, 1)
 emitting = false
 amount = 12
 process_material = SubResource("ParticleProcessMaterial_tnkbn")

@@ -2,8 +2,7 @@ extends CharacterBody2D
 
 #		CONST
 const HEALTH := 6
-
-const POISON_POTION = preload("res://scenes/__PoisonPotion.tscn")
+const POTION = preload("res://scenes/__Potion.tscn")
 
 #		VAR
 @export_range(0, 6) var health := 6
@@ -48,30 +47,29 @@ func _physics_process(delta):
 
 		# Attack
 		if Input.is_action_pressed("boost") and Input.is_action_pressed("attack") and $AttackCoolDown.is_stopped():
-			var pp = POISON_POTION.instantiate()
-			pp.is_boost = true
+			var potion = POTION.instantiate()
+			potion.is_boost = true
 			if $AnimatedSprite2D.animation == "run":
-				pp.force_x = speed
-			pp.force_y = -jump_height + velocity.y
-			pp.direction = direction
-			get_parent().add_child(pp)
-			pp.position.x = position.x
-			pp.position.y = position.y - 50
+				potion.force_x = speed
+			potion.force_y = -jump_height + velocity.y
+			potion.direction = direction
+			potion.global_position.x = global_position.x
+			potion.global_position.y = global_position.y - 50
+			get_parent().add_child(potion)
 			$AttackCoolDown.start()
 			$AnimatedSprite2D.play("attack")
 		elif Input.is_action_pressed("attack") and $AttackCoolDown.is_stopped():
-			var pp = POISON_POTION.instantiate()
-			pp.is_boost = false
-			match $AnimatedSprite2D.animation:
-				"run":
-					pp.force_x = speed
-				"jump":
-					pp.force_y = jump_height / 4.0
+			var potion = POTION.instantiate()
+			potion.is_boost = false
+			if $AnimatedSprite2D.animation == "jump":
+					potion.force_y = velocity.y / 3
+			elif direction:
+				potion.force_x = speed
 			if $AnimatedSprite2D.flip_h:
-				pp.direction = -1
-			get_parent().add_child(pp)
-			pp.position.x = position.x
-			pp.position.y = position.y - 50
+				potion.direction = -1
+			potion.global_position.x = global_position.x
+			potion.global_position.y = global_position.y - 50
+			get_parent().add_child(potion)
 			$AttackCoolDown.start()
 			$AnimatedSprite2D.play("attack")
 
@@ -118,10 +116,10 @@ func _on_animated_sprite_2d_animation_finished():
 		"attack":
 			$AnimatedSprite2D.play("idle")
 
-func _on_dash_duration_timeout(): # dash end
+func _on_dash_duration_timeout():
 	velocity.x = 0
 	$DashCoolDown.start()
-func _on_dash_cool_down_timeout(): # dash cool down end if mc is on the floor
+func _on_dash_cool_down_timeout():
 	if not is_on_floor():
 		$DashCoolDown.start()
 
