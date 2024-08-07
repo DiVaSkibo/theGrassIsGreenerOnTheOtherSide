@@ -27,7 +27,7 @@ shape = SubResource("WorldBoundaryShape2D_3rvhb")
 position = Vector2(601, 481)
 
 [node name="mc_witch" parent="." instance=ExtResource("2_3q7y6")]
-position = Vector2(84, 506)
+position = Vector2(83, 477)
 jump_height = -1400
 
 [connection signal="hit" from="enemy_2" to="mc_witch" method="_on_hit"]

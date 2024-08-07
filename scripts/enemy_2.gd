@@ -34,8 +34,8 @@ func _physics_process(delta):
 	#velocity.x = move_toward(velocity.x, 0, speed)
 	move_and_slide()
 
-func __hit__(value : int):
-	health -= value
+func blink_intensity(value : float):
+	$AnimatedSprite2D.material.set_shader_parameter("blink_intensity", value)
 
 
 #		SIGNAL
@@ -61,4 +61,10 @@ func _on_attack_area_body_entered(body):
 func _on_attack_area_body_exited(body):
 	if body == victim:
 		is_victim_in_attack_area = false
+
+func _on_hit(value):
+	health -= value
+	var tween = get_tree().create_tween()
+	tween.tween_method(blink_intensity, 0.0, 4.0, 0.2)
+	tween.tween_method(blink_intensity, 4.0, 0.0, 0.5)
 

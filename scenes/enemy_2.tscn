@@ -1,7 +1,13 @@
-[gd_scene load_steps=31 format=3 uid="uid://bh34bfnuu6xhn"]
+[gd_scene load_steps=33 format=3 uid="uid://bh34bfnuu6xhn"]
 
 [ext_resource type="Script" path="res://scripts/enemy_2.gd" id="1_rtgcm"]
 [ext_resource type="Texture2D" uid="uid://6f6a6xhirqbx" path="res://just_test_sprites/enemy_sprite_sheet_by_bugrasarikaya_dfb98st-fullview.png" id="2_dayxa"]
+[ext_resource type="Shader" path="res://resources/shaders/blink.gdshader" id="2_wwelh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7eva5"]
+shader = ExtResource("2_wwelh")
+shader_parameter/blink_color = Color(0.847898, 0.190086, 1.92523e-07, 1)
+shader_parameter/blink_intensity = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_466xh"]
 atlas = ExtResource("2_dayxa")
@@ -207,6 +213,7 @@ collision_mask = 2
 script = ExtResource("1_rtgcm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_7eva5")
 sprite_frames = SubResource("SpriteFrames_q67o2")
 animation = &"attack"
 autoplay = "idle"

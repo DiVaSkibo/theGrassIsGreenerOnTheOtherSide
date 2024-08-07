@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://8esjhcg4sq4o"]
+[gd_scene load_steps=8 format=3 uid="uid://8esjhcg4sq4o"]
 
 [ext_resource type="Script" path="res://scripts/__poison_potion.gd" id="1_qf04c"]
 [ext_resource type="Texture2D" uid="uid://h0c744rn1hpp" path="res://resources/assets/potion/pink.png" id="2_5arp4"]
+[ext_resource type="Texture2D" uid="uid://bn8uw221k4mly" path="res://just_test_sprites/2276ff44583003720f1457fc25d86eaa.png" id="2_luemf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_aicsh"]
 
@@ -9,10 +10,18 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_luemf")
+}],
+"loop": false,
+"name": &"boost",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("2_5arp4")
 }],
-"loop": true,
-"name": &"default",
+"loop": false,
+"name": &"poison",
 "speed": 5.0
 }]
 
@@ -32,6 +41,8 @@ script = ExtResource("1_qf04c")
 position = Vector2(0, 5)
 scale = Vector2(0.086375, 0.086375)
 sprite_frames = SubResource("SpriteFrames_1biy0")
+animation = &"poison"
+autoplay = "poison"
 offset = Vector2(-1.19209e-05, -99.3351)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

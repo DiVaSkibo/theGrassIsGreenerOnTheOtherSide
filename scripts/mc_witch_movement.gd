@@ -29,6 +29,17 @@ func _physics_process(delta):
 		else:
 			velocity.x = dash_speed
 	else:
+		# Direction and Movement/Deceleration
+		var direction = Input.get_axis("left", "right")
+		if direction:
+			velocity.x = direction * speed
+		else:
+			velocity.x = move_toward(velocity.x, 0, speed)
+		if direction > 0:
+			$AnimatedSprite2D.flip_h = false
+		elif direction < 0:
+			$AnimatedSprite2D.flip_h = true
+		
 		# Add the gravity.
 		if not is_on_floor():
 			velocity.y += gravity * delta
@@ -36,13 +47,26 @@ func _physics_process(delta):
 			velocity.y = lerp(prev_velocity.y, velocity.y, 0.8)
 
 		# Attack
-		if Input.is_action_pressed("attack") and $AttackCoolDown.is_stopped():
+		if Input.is_action_pressed("boost") and Input.is_action_pressed("attack") and $AttackCoolDown.is_stopped():
 			var pp = POISON_POTION.instantiate()
+			pp.is_boost = true
+			if $AnimatedSprite2D.animation == "run":
+				pp.force_x = speed
+			pp.force_y = -jump_height + velocity.y
+			pp.direction = direction
+			get_parent().add_child(pp)
+			pp.position.x = position.x
+			pp.position.y = position.y - 50
+			$AttackCoolDown.start()
+			$AnimatedSprite2D.play("attack")
+		elif Input.is_action_pressed("attack") and $AttackCoolDown.is_stopped():
+			var pp = POISON_POTION.instantiate()
+			pp.is_boost = false
 			match $AnimatedSprite2D.animation:
 				"run":
-					pp.speed_x = speed
+					pp.force_x = speed
 				"jump":
-					pp.speed_y = jump_height / 4.0
+					pp.force_y = jump_height / 4.0
 			if $AnimatedSprite2D.flip_h:
 				pp.direction = -1
 			get_parent().add_child(pp)
@@ -52,24 +76,10 @@ func _physics_process(delta):
 			$AnimatedSprite2D.play("attack")
 
 		# Jump
-		if Input.is_action_just_pressed("jump") and is_on_floor() and $AnimatedSprite2D.animation != "attack":
+		if Input.is_action_just_pressed("jump") and is_on_floor():
 			velocity.y = jump_height
-		elif Input.is_action_just_released("jump") and velocity.y < 0 or $AnimatedSprite2D.animation == "attack" and velocity.y < 0:
+		elif Input.is_action_just_released("jump") and velocity.y < 0 or Input.is_action_pressed("attack") and velocity.y < 0:
 			velocity.y *= 0.2
-
-		# Direction and Movement/Deceleration
-		var direction = Input.get_axis("left", "right")
-		if not direction or direction and is_on_floor() and $AnimatedSprite2D.animation == "attack":
-			velocity.x = move_toward(velocity.x, 0, speed)
-		elif direction:
-			velocity.x = direction * speed
-		else:
-			velocity.x = move_toward(velocity.x, 0, speed)
-
-		if direction > 0:
-			$AnimatedSprite2D.flip_h = false
-		elif direction < 0:
-			$AnimatedSprite2D.flip_h = true
 
 		# Animation
 		if Input.is_action_just_pressed("dash") and $DashCoolDown.is_stopped() and $AnimatedSprite2D.animation != "attack":
@@ -82,13 +92,17 @@ func _physics_process(delta):
 				$AnimatedSprite2D.play("idle")
 			else:
 				$AnimatedSprite2D.play("run")
-		elif $AnimatedSprite2D.animation != "attack":
+		else:
 			# air resistence in left/right
 			velocity.x = lerp(prev_velocity.x, velocity.x, 0.1)
-			$AnimatedSprite2D.play("jump")
+			if $AnimatedSprite2D.animation != "attack":
+				$AnimatedSprite2D.play("jump")
 
 	prev_velocity = velocity
 	move_and_slide()
+
+func blink_intensity(value : float):
+	$AnimatedSprite2D.material.set_shader_parameter("blink_intensity", value)
 
 func heal(value: int):
 	for i in value:
@@ -117,4 +131,9 @@ func _on_hit(value):
 			break
 		health -= 1
 		$Health.get_child(health).texture = load("res://just_test_sprites/0hp.png")
+	var tween = get_tree().create_tween()
+	tween.tween_method(blink_intensity, 0.0, 4.0, 0.2)
+	tween.tween_method(blink_intensity, 4.0, 0.0, 0.5)
+	$GPUParticles2D.restart()
+	$GPUParticles2D.emitting = true
 
