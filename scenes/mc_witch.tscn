@@ -304,7 +304,6 @@ speed_scale = 2.0
 explosiveness = 1.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-scale = Vector2(1, 1)
 stream = ExtResource("45_o25q7")
 bus = &"SFX"
 

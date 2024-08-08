@@ -3,7 +3,7 @@ extends CharacterBody2D
 #		CONST
 const HEALTH := 6
 const POTION = preload("res://scenes/__Potion.tscn")
-const STEP_FLOOR = preload("res://resources/audio/467784__sgak__step.wav")
+const STEP_FLOOR = preload("res://resources/audio/467784_sgak_step (mp3cut.net).mp3")
 const STEP_GRASS = preload("res://resources/audio/514254__jtn191__footstep4.wav")
 #		VAR
 @export_range(0, 6) var health := 6
@@ -33,7 +33,7 @@ func _physics_process(delta):
 		if direction:
 			velocity.x = direction * speed
 			if is_on_floor() and not $AudioStreamPlayer2D.playing:
-				$AudioStreamPlayer2D.pitch_scale = randf_range(0.8, 1.2)
+				$AudioStreamPlayer2D.pitch_scale = randf_range(0.9, 1.1)
 				$AudioStreamPlayer2D.play()
 		else:
 			velocity.x = move_toward(velocity.x, 0, speed)
