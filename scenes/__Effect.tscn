@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://blyldt88x2e1i"]
+[gd_scene load_steps=6 format=3 uid="uid://blyldt88x2e1i"]
 
 [ext_resource type="Script" path="res://scripts/__effect.gd" id="1_562g8"]
 [ext_resource type="Texture2D" uid="uid://csuw20bc8qp8l" path="res://just_test_sprites/pngtree-flame-spark-spark-bomb-explosion-gunpowder-visual-effect-decorative-pattern-png-image_12298023.png" id="2_s0ms6"]
+[ext_resource type="AudioStream" uid="uid://bl548t5ward5" path="res://resources/audio/714257__qubodup__puff-of-smoke.wav" id="3_kvj2r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wtwop"]
 animations = [{
@@ -28,6 +29,9 @@ sprite_frames = SubResource("SpriteFrames_wtwop")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7ulm0")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_kvj2r")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

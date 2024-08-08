@@ -3,14 +3,13 @@ extends CharacterBody2D
 #		CONST
 const HEALTH := 6
 const POTION = preload("res://scenes/__Potion.tscn")
-
+const STEP_FLOOR = preload("res://resources/audio/467784__sgak__step.wav")
+const STEP_GRASS = preload("res://resources/audio/514254__jtn191__footstep4.wav")
 #		VAR
 @export_range(0, 6) var health := 6
-
 @export_range(0, 2000) var speed := 520
 @export_range(-2000, 0) var jump_height := -1100
 @export_range(0, 2000) var dash_speed := 1100
-
 var gravity = 3 * ProjectSettings.get_setting("physics/2d/default_gravity")
 var prev_velocity := Vector2.ZERO
 
@@ -19,6 +18,7 @@ var prev_velocity := Vector2.ZERO
 func _ready():
 	for i in health:
 		$Health.get_child(i).texture = load("res://just_test_sprites/1hp.png")
+	$AudioStreamPlayer2D.stream = [STEP_FLOOR, STEP_GRASS].pick_random()
 
 func _physics_process(delta):
 	# Is dash activated
@@ -32,6 +32,9 @@ func _physics_process(delta):
 		var direction = Input.get_axis("left", "right")
 		if direction:
 			velocity.x = direction * speed
+			if is_on_floor() and not $AudioStreamPlayer2D.playing:
+				$AudioStreamPlayer2D.pitch_scale = randf_range(0.8, 1.2)
+				$AudioStreamPlayer2D.play()
 		else:
 			velocity.x = move_toward(velocity.x, 0, speed)
 		if direction > 0:

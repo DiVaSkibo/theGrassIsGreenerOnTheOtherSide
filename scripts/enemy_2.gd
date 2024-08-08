@@ -25,6 +25,9 @@ func _physics_process(delta):
 		pass
 	elif victim:
 		position += (victim.position - position) / speed
+		if is_on_floor() and not $AudioStreamPlayer2D.playing:
+			$AudioStreamPlayer2D.pitch_scale = randf_range(0.1, 0.3)
+			$AudioStreamPlayer2D.play()
 		$AnimatedSprite2D.play("move")
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)

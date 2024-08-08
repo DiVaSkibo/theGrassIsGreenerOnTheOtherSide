@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdfkt5uejiee8"]
+[gd_scene load_steps=9 format=3 uid="uid://cdfkt5uejiee8"]
 
 [ext_resource type="Script" path="res://scripts/__potion.gd" id="1_wku5u"]
 [ext_resource type="Texture2D" uid="uid://bn8uw221k4mly" path="res://just_test_sprites/2276ff44583003720f1457fc25d86eaa.png" id="2_5nej4"]
 [ext_resource type="Texture2D" uid="uid://h0c744rn1hpp" path="res://resources/assets/potion/pink.png" id="3_pt5t5"]
+[ext_resource type="AudioStream" uid="uid://dv7v3a5hkaeky" path="res://resources/audio/977__rhumphries__rbh-glass_break-01.wav" id="4_3t4lq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_aicsh"]
 
@@ -56,5 +57,9 @@ collision_mask = 7
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_41xfk")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_3t4lq")
+bus = &"SFX"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -6,6 +6,9 @@ signal hit(value : int)
 var is_boost : bool
 
 
+func _ready():
+		$AudioStreamPlayer2D.play()
+
 func _physics_process(_delta):
 	for body in get_overlapping_bodies():
 		if body is CharacterBody2D and not is_boost:

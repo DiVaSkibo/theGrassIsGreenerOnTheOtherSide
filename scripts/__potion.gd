@@ -2,7 +2,6 @@ extends RigidBody2D
 
 #		CONST
 const EFFECT = preload("res://scenes/__Effect.tscn")
-
 #		VAR
 @export_range(0, 2000) var force_x := 0
 @export_range(-2000, 0) var force_y := 0
@@ -26,10 +25,14 @@ func _process(delta):
 
 #		SIGNAL
 func _on_area_2d_body_entered(body):
-	if body.name.begins_with("enemy") or body.name.begins_with("floor"):
+	if (body.name.begins_with("enemy") or body.name.begins_with("floor")) and not $AudioStreamPlayer2D.playing:
+		$AudioStreamPlayer2D.pitch_scale = randf_range(0.8, 1.2)
+		$AudioStreamPlayer2D.play()
 		var effect = EFFECT.instantiate()
 		effect.is_boost = is_boost
 		effect.global_position = global_position
+		$AnimatedSprite2D.hide()
 		get_tree().current_scene.call_deferred("add_child", effect)
+		await $AudioStreamPlayer2D.finished
 		queue_free()
 
