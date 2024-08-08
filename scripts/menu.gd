@@ -40,7 +40,9 @@ func _on_main_2_pressed():
 func _on_options_pressed():
 	$AnimationPlayer.play("main_options")
 func _on_play_pressed():
-	pass
+	Transition.play()
+	await Transition.finished
+	get_tree().change_scene_to_file("res://scenes/test.tscn")
 func _on_exit_pressed():
 	get_tree().quit()
 

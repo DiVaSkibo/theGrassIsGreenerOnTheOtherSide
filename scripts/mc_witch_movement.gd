@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 #		CONST
 const HEALTH := 6
+const TEXT_BOX = preload("res://scenes/___TextBox.tscn")
 const POTION = preload("res://scenes/__Potion.tscn")
 const STEP_FLOOR = preload("res://resources/audio/467784_sgak_step (mp3cut.net).mp3")
 const STEP_GRASS = preload("res://resources/audio/514254__jtn191__footstep4.wav")
@@ -148,4 +149,15 @@ func _on_hit(value):
 	tween.tween_method(blink_intensity, 4.0, 0.0, 0.5)
 	$GPUParticles2D.restart()
 	$GPUParticles2D.emitting = true
+
+
+
+func _on_area_2d_body_entered(body):
+	if body.name == "mc_witch":
+		var textbox = TEXT_BOX.instantiate()
+		add_child(textbox)
+		for words in ["Bababuj i Kleshni Kraba! ROJfoogeo owg fog... wr wpwPWR wp LR pRLW 2484052$", "I shto teper?", "Pffffffffffffffffffff"]:
+			textbox.say(words, global_position)
+			await textbox.words_finished
+		textbox.queue_free()
 

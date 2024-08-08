@@ -1,17 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://70sguiyjgrtp"]
+[gd_scene load_steps=4 format=3 uid="uid://70sguiyjgrtp"]
 
 [ext_resource type="Script" path="res://scripts/___text_box.gd" id="1_m1xoc"]
-[ext_resource type="Texture2D" uid="uid://c2dmoe4e0fwdw" path="res://just_test_sprites/pngtree-speech-bubble-text-box-vector-png-image_12784601.png" id="2_1b1qt"]
+[ext_resource type="Texture2D" uid="uid://b1a3c2kv6oyfp" path="res://just_test_sprites/pngtree-speech-bubble-text-box-vector-png-image_12784601.png" id="2_1b1qt"]
+[ext_resource type="FontFile" uid="uid://1qt0bkhnm3c1" path="res://resources/VictoriaCAT.ttf" id="3_ugdu7"]
 
 [node name="text_box" type="MarginContainer"]
-anchors_preset = -1
+anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -228.0
-offset_right = 301.0
+offset_top = -1080.0
+offset_right = 256.0
+offset_bottom = -880.0
 grow_vertical = 0
 size_flags_horizontal = 4
-size_flags_vertical = 0
+size_flags_vertical = 4
 script = ExtResource("1_m1xoc")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
@@ -25,18 +27,22 @@ patch_margin_bottom = 100
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 150
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 150
-theme_override_constants/margin_bottom = 100
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 70
 
 [node name="Label" type="Label" parent="MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
+theme_override_fonts/font = ExtResource("3_ugdu7")
+theme_override_font_sizes/font_size = 40
 
-[node name="Timer" type="Timer" parent="."]
+[node name="LetterDuration" type="Timer" parent="."]
 wait_time = 0.04
+one_shot = true
+
+[node name="PauseDuration" type="Timer" parent="."]
+wait_time = 2.0
 one_shot = true

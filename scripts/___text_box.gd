@@ -6,11 +6,13 @@ const MAX_AMOUNT_OF_WORDS = 7
 
 
 func say(words : String, coordinate : Vector2):
-	global_position.x = coordinate.x
-	global_position.y = coordinate.y - size.y
 	$MarginContainer/Label.text = ""
+	size = Vector2(0, 0)
+	global_position.x = coordinate.x - size.x / 4
+	global_position.y = coordinate.y - size.y
 	var k = 0
 	for letter in words:
+		$LetterDuration.start()
 		if letter == ' ':
 			if k + 1 == MAX_AMOUNT_OF_WORDS:
 				letter = '\n'
@@ -18,7 +20,8 @@ func say(words : String, coordinate : Vector2):
 			else:
 				k += 1
 		$MarginContainer/Label.text += letter
-		$Timer.start()
-		await $Timer.timeout
+		await $LetterDuration.timeout
+	$PauseDuration.start()
+	await  $PauseDuration.timeout
 	words_finished.emit()
 
