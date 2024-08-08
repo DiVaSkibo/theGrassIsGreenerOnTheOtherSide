@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=3 uid="uid://himy2c8yo5sa"]
+
+[ext_resource type="Texture2D" uid="uid://k08h14cpl5fi" path="res://just_test_sprites/pngtree-tranquil-green-rose-in-watercolor-png-image_6663664.png" id="1_2ufx5"]
+[ext_resource type="Script" path="res://scripts/_heal_area.gd" id="1_6wcqb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kpnsp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2ufx5")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8l0u1"]
+size = Vector2(142, 79.5)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rmmd4"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 40.0
+direction = Vector3(0, 1, 0)
+orbit_velocity_max = 0.2
+radial_velocity_max = 4.0
+gravity = Vector3(0, -50, 0)
+scale_max = 3.0
+color = Color(0, 1, 1, 1)
+hue_variation_min = -0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p8aye"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 40.0
+gravity = Vector3(0, -40, 0)
+scale_min = 0.0
+scale_max = 4.0
+color = Color(0, 1, 1, 1)
+hue_variation_min = -0.5
+
+[node name="HealArea" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_6wcqb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.394444, 0.394444)
+sprite_frames = SubResource("SpriteFrames_kpnsp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10.25)
+shape = SubResource("RectangleShape2D_8l0u1")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_rmmd4")
+lifetime = 2.0
+speed_scale = 0.7
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_p8aye")
+lifetime = 3.0
+one_shot = true
+speed_scale = 2.0
+
+[node name="HealCoolDown" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="HealCoolDown" to="." method="_on_heal_cool_down_timeout"]

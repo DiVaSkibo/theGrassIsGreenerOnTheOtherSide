@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbv700opojca3"]
+[gd_scene load_steps=6 format=3 uid="uid://cbv700opojca3"]
 
 [ext_resource type="PackedScene" uid="uid://bh34bfnuu6xhn" path="res://scenes/enemy_2.tscn" id="1_5ps72"]
 [ext_resource type="PackedScene" uid="uid://lhug5n4b1x8b" path="res://scenes/mc_witch.tscn" id="2_3q7y6"]
+[ext_resource type="PackedScene" uid="uid://himy2c8yo5sa" path="res://scenes/_HealArea.tscn" id="3_fth56"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3rvhb"]
 
@@ -35,12 +36,16 @@ position = Vector2(3.00002, 471)
 jump_height = -1400
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(-372, 314)
+position = Vector2(-1006, 312)
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_x5pjw")
 
+[node name="HealArea" parent="." instance=ExtResource("3_fth56")]
+position = Vector2(-796, 546)
+
 [connection signal="hit" from="enemy_2" to="mc_witch" method="_on_hit"]
 [connection signal="body_entered" from="Area2D" to="mc_witch" method="_on_area_2d_body_entered"]
+[connection signal="heal" from="HealArea" to="mc_witch" method="_on_heal"]

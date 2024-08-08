@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+
 #		CONST
 const HEALTH := 6
 const TEXT_BOX = preload("res://scenes/___TextBox.tscn")
@@ -113,13 +114,6 @@ func _physics_process(delta):
 func blink_intensity(value : float):
 	$AnimatedSprite2D.material.set_shader_parameter("blink_intensity", value)
 
-func heal(value: int):
-	for i in value:
-		if health == HEALTH:
-			break
-		$Health.get_child(health).texture = load("res://just_test_sprites/1hp.png")
-		health += 1
-
 
 #		SIGNAL
 func _on_animated_sprite_2d_animation_finished():
@@ -149,8 +143,12 @@ func _on_hit(value):
 	tween.tween_method(blink_intensity, 4.0, 0.0, 0.5)
 	$GPUParticles2D.restart()
 	$GPUParticles2D.emitting = true
-
-
+func _on_heal(value):
+	for i in value:
+		if health == HEALTH:
+			break
+		$Health.get_child(health).texture = load("res://just_test_sprites/1hp.png")
+		health += 1
 
 func _on_area_2d_body_entered(body):
 	if body.name == "mc_witch":

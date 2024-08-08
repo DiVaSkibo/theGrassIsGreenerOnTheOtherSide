@@ -71,3 +71,7 @@ func _on_hit(value):
 	tween.tween_method(blink_intensity, 0.0, 4.0, 0.2)
 	tween.tween_method(blink_intensity, 4.0, 0.0, 0.5)
 
+
+
+func _on_heal_area_heal(value):
+	pass # Replace with function body.
