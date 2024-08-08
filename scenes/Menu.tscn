@@ -1,28 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://f7ulrbjivid5"]
+[gd_scene load_steps=10 format=3 uid="uid://f7ulrbjivid5"]
 
-[ext_resource type="Script" path="res://scenes/menu.gd" id="1_2qkw0"]
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_ng5c7"]
 [ext_resource type="FontFile" uid="uid://1qt0bkhnm3c1" path="res://resources/VictoriaCAT.ttf" id="1_uwe2x"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_htc6u"]
-bg_color = Color(1, 1, 1, 1)
-border_width_top = 4
-
-[sub_resource type="Animation" id="Animation_dgg74"]
-resource_name = "move"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(-2, 0.5),
-"update": 0,
-"values": [Vector2(960, 540), Vector2(2880, 540)]
-}
 
 [sub_resource type="Animation" id="Animation_wf25c"]
 length = 0.001
@@ -38,15 +17,140 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(960, 540)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Video:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1920, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Audio:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1920, 1080)]
+}
+
+[sub_resource type="Animation" id="Animation_dhxw0"]
+resource_name = "audio_video"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Video:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(1919, -1080), Vector2(1920, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Audio:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(1920, 0), Vector2(1920, 1080)]
+}
+
+[sub_resource type="Animation" id="Animation_dgg74"]
+resource_name = "main_options"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(960, 540), Vector2(2880, 540)]
+}
+
+[sub_resource type="Animation" id="Animation_76bai"]
+resource_name = "options_main"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(2880, 540), Vector2(960, 540)]
+}
+
+[sub_resource type="Animation" id="Animation_e2mlj"]
+resource_name = "video_audio"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Video:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(1920, 0), Vector2(1919, -1080)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Audio:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(1920, 1080), Vector2(1920, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1icsw"]
 _data = {
 "RESET": SubResource("Animation_wf25c"),
-"move": SubResource("Animation_dgg74")
+"audio_video": SubResource("Animation_dhxw0"),
+"main_options": SubResource("Animation_dgg74"),
+"options_main": SubResource("Animation_76bai"),
+"video_audio": SubResource("Animation_e2mlj")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_htc6u"]
+bg_color = Color(1, 1, 1, 1)
+border_width_top = 4
+
 [node name="Menu" type="Node2D"]
-script = ExtResource("1_2qkw0")
+script = ExtResource("1_ng5c7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 540)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1icsw")
+}
 
 [node name="Main" type="MarginContainer" parent="."]
 size_flags_horizontal = 0
@@ -56,11 +160,9 @@ theme_override_constants/margin_top = 150
 [node name="VBoxContainer" type="VBoxContainer" parent="Main"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Main/VBoxContainer"]
+[node name="Options" type="Button" parent="Main/VBoxContainer"]
 custom_minimum_size = Vector2(600, 200)
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
 focus_mode = 0
 theme_override_fonts/font = ExtResource("1_uwe2x")
 theme_override_font_sizes/font_size = 140
@@ -76,11 +178,10 @@ size_flags_horizontal = 0
 theme_override_constants/separation = 40
 theme_override_styles/separator = SubResource("StyleBoxFlat_htc6u")
 
-[node name="Button2" type="Button" parent="Main/VBoxContainer"]
+[node name="Play" type="Button" parent="Main/VBoxContainer"]
 custom_minimum_size = Vector2(600, 200)
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 0
 focus_mode = 0
 theme_override_fonts/font = ExtResource("1_uwe2x")
 theme_override_font_sizes/font_size = 140
@@ -95,11 +196,10 @@ size_flags_horizontal = 0
 theme_override_constants/separation = 40
 theme_override_styles/separator = SubResource("StyleBoxFlat_htc6u")
 
-[node name="Button3" type="Button" parent="Main/VBoxContainer"]
+[node name="Exit" type="Button" parent="Main/VBoxContainer"]
 custom_minimum_size = Vector2(600, 200)
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 0
 focus_mode = 0
 theme_override_fonts/font = ExtResource("1_uwe2x")
 theme_override_font_sizes/font_size = 140
@@ -114,35 +214,26 @@ size_flags_horizontal = 0
 theme_override_constants/separation = 40
 theme_override_styles/separator = SubResource("StyleBoxFlat_htc6u")
 
-[node name="Options" type="MarginContainer" parent="."]
+[node name="Video" type="MarginContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 1920.0
-offset_right = 3534.0
-offset_bottom = 1005.0
-size_flags_horizontal = 0
-theme_override_constants/margin_left = 160
-theme_override_constants/margin_top = 89
+offset_right = 3524.0
+offset_bottom = 1002.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 150
 
-[node name="TabContainer" type="TabContainer" parent="Options"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_uwe2x")
-theme_override_font_sizes/font_size = 140
-tab_alignment = 1
-drag_to_rearrange_enabled = true
-
-[node name="Video" type="MarginContainer" parent="Options/TabContainer"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Options/TabContainer/Video"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Video"]
 layout_mode = 2
 
-[node name="Screenmode" type="HBoxContainer" parent="Options/TabContainer/Video/VBoxContainer"]
+[node name="Screenmode" type="HBoxContainer" parent="Video/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Options/TabContainer/Video/VBoxContainer/Screenmode"]
+[node name="Label" type="Label" parent="Video/VBoxContainer/Screenmode"]
 custom_minimum_size = Vector2(700, 140)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_uwe2x")
@@ -150,11 +241,12 @@ theme_override_font_sizes/font_size = 100
 text = "Screen mode"
 vertical_alignment = 1
 
-[node name="OptionButton" type="OptionButton" parent="Options/TabContainer/Video/VBoxContainer/Screenmode"]
-custom_minimum_size = Vector2(700, 140)
+[node name="scrmod" type="OptionButton" parent="Video/VBoxContainer/Screenmode"]
+custom_minimum_size = Vector2(567, 140)
 layout_mode = 2
+focus_mode = 0
 theme_override_fonts/font = ExtResource("1_uwe2x")
-theme_override_font_sizes/font_size = 70
+theme_override_font_sizes/font_size = 60
 flat = true
 alignment = 2
 item_count = 3
@@ -166,18 +258,18 @@ popup/item_1/id = 1
 popup/item_2/text = "Exclusive Fullscreen"
 popup/item_2/id = 2
 
-[node name="HSeparator" type="HSeparator" parent="Options/TabContainer/Video/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="Video/VBoxContainer"]
 clip_contents = true
-custom_minimum_size = Vector2(1400, 0)
+custom_minimum_size = Vector2(1272, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 40
 theme_override_styles/separator = SubResource("StyleBoxFlat_htc6u")
 
-[node name="Resolution" type="HBoxContainer" parent="Options/TabContainer/Video/VBoxContainer"]
+[node name="Resolution" type="HBoxContainer" parent="Video/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Options/TabContainer/Video/VBoxContainer/Resolution"]
+[node name="Label" type="Label" parent="Video/VBoxContainer/Resolution"]
 custom_minimum_size = Vector2(700, 140)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_uwe2x")
@@ -185,11 +277,12 @@ theme_override_font_sizes/font_size = 100
 text = "Resolution"
 vertical_alignment = 1
 
-[node name="OptionButton" type="OptionButton" parent="Options/TabContainer/Video/VBoxContainer/Resolution"]
-custom_minimum_size = Vector2(700, 140)
+[node name="reso" type="OptionButton" parent="Video/VBoxContainer/Resolution"]
+custom_minimum_size = Vector2(567, 140)
 layout_mode = 2
+focus_mode = 0
 theme_override_fonts/font = ExtResource("1_uwe2x")
-theme_override_font_sizes/font_size = 70
+theme_override_font_sizes/font_size = 60
 flat = true
 alignment = 2
 item_count = 3
@@ -201,18 +294,18 @@ popup/item_1/id = 1
 popup/item_2/text = "FHD 1920x1080"
 popup/item_2/id = 2
 
-[node name="HSeparator2" type="HSeparator" parent="Options/TabContainer/Video/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="Video/VBoxContainer"]
 clip_contents = true
-custom_minimum_size = Vector2(1400, 0)
+custom_minimum_size = Vector2(1272, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 40
 theme_override_styles/separator = SubResource("StyleBoxFlat_htc6u")
 
-[node name="Brightness" type="HBoxContainer" parent="Options/TabContainer/Video/VBoxContainer"]
+[node name="Brightness" type="HBoxContainer" parent="Video/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Options/TabContainer/Video/VBoxContainer/Brightness"]
+[node name="Label" type="Label" parent="Video/VBoxContainer/Brightness"]
 custom_minimum_size = Vector2(700, 140)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_uwe2x")
@@ -220,28 +313,29 @@ theme_override_font_sizes/font_size = 100
 text = "Brightness"
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="Options/TabContainer/Video/VBoxContainer/Brightness"]
+[node name="bright" type="HSlider" parent="Video/VBoxContainer/Brightness"]
 clip_contents = true
-custom_minimum_size = Vector2(700, 140)
+custom_minimum_size = Vector2(567, 140)
 layout_mode = 2
 size_flags_vertical = 1
+focus_mode = 0
 min_value = 0.2
-max_value = 5.0
+max_value = 3.0
 step = 0.05
 value = 1.0
 
-[node name="HSeparator3" type="HSeparator" parent="Options/TabContainer/Video/VBoxContainer"]
+[node name="HSeparator3" type="HSeparator" parent="Video/VBoxContainer"]
 clip_contents = true
-custom_minimum_size = Vector2(1400, 0)
+custom_minimum_size = Vector2(1272, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 40
 theme_override_styles/separator = SubResource("StyleBoxFlat_htc6u")
 
-[node name="Vsync" type="HBoxContainer" parent="Options/TabContainer/Video/VBoxContainer"]
+[node name="Vsync" type="HBoxContainer" parent="Video/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Options/TabContainer/Video/VBoxContainer/Vsync"]
+[node name="Label" type="Label" parent="Video/VBoxContainer/Vsync"]
 custom_minimum_size = Vector2(700, 140)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_uwe2x")
@@ -249,32 +343,68 @@ theme_override_font_sizes/font_size = 100
 text = "Vsync"
 vertical_alignment = 1
 
-[node name="CheckButton" type="CheckButton" parent="Options/TabContainer/Video/VBoxContainer/Vsync"]
-custom_minimum_size = Vector2(700, 140)
+[node name="vsync" type="CheckButton" parent="Video/VBoxContainer/Vsync"]
+custom_minimum_size = Vector2(567, 140)
 layout_mode = 2
+focus_mode = 0
 
-[node name="HSeparator4" type="HSeparator" parent="Options/TabContainer/Video/VBoxContainer"]
+[node name="HSeparator4" type="HSeparator" parent="Video/VBoxContainer"]
 clip_contents = true
-custom_minimum_size = Vector2(1400, 0)
+custom_minimum_size = Vector2(1272, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 40
 theme_override_styles/separator = SubResource("StyleBoxFlat_htc6u")
 
-[node name="Audio" type="MarginContainer" parent="Options/TabContainer"]
-visible = false
+[node name="Audio" type="Button" parent="Video/VBoxContainer"]
+custom_minimum_size = Vector2(1272, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("1_uwe2x")
+theme_override_font_sizes/font_size = 70
+text = "go to Audio settings"
+flat = true
+
+[node name="Audio" type="MarginContainer" parent="."]
 self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 20
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1920.0
+offset_top = 1080.0
+offset_right = 3524.0
+offset_bottom = 1938.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 150
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Options/TabContainer/Audio"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Audio"]
 layout_mode = 2
 
-[node name="Master" type="HBoxContainer" parent="Options/TabContainer/Audio/VBoxContainer"]
+[node name="Video" type="Button" parent="Audio/VBoxContainer"]
+custom_minimum_size = Vector2(1272, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("1_uwe2x")
+theme_override_font_sizes/font_size = 70
+text = "go to Video settings"
+flat = true
+
+[node name="HSeparator" type="HSeparator" parent="Audio/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(1272, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 40
+theme_override_styles/separator = SubResource("StyleBoxFlat_htc6u")
+
+[node name="Master" type="HBoxContainer" parent="Audio/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Options/TabContainer/Audio/VBoxContainer/Master"]
+[node name="Label" type="Label" parent="Audio/VBoxContainer/Master"]
 custom_minimum_size = Vector2(700, 140)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_uwe2x")
@@ -282,26 +412,27 @@ theme_override_font_sizes/font_size = 100
 text = "Master volume"
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="Options/TabContainer/Audio/VBoxContainer/Master"]
-custom_minimum_size = Vector2(700, 140)
+[node name="mastvol" type="HSlider" parent="Audio/VBoxContainer/Master"]
+custom_minimum_size = Vector2(567, 140)
 layout_mode = 2
 size_flags_vertical = 1
+focus_mode = 0
 max_value = 2.0
 step = 0.05
 value = 1.0
 
-[node name="HSeparator" type="HSeparator" parent="Options/TabContainer/Audio/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="Audio/VBoxContainer"]
 clip_contents = true
-custom_minimum_size = Vector2(1400, 0)
+custom_minimum_size = Vector2(1272, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 40
 theme_override_styles/separator = SubResource("StyleBoxFlat_htc6u")
 
-[node name="Music" type="HBoxContainer" parent="Options/TabContainer/Audio/VBoxContainer"]
+[node name="Music" type="HBoxContainer" parent="Audio/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Options/TabContainer/Audio/VBoxContainer/Music"]
+[node name="Label" type="Label" parent="Audio/VBoxContainer/Music"]
 custom_minimum_size = Vector2(700, 140)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_uwe2x")
@@ -309,26 +440,27 @@ theme_override_font_sizes/font_size = 100
 text = "Music volume"
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="Options/TabContainer/Audio/VBoxContainer/Music"]
-custom_minimum_size = Vector2(700, 140)
+[node name="musivol" type="HSlider" parent="Audio/VBoxContainer/Music"]
+custom_minimum_size = Vector2(567, 140)
 layout_mode = 2
 size_flags_vertical = 1
+focus_mode = 0
 max_value = 2.0
 step = 0.05
 value = 1.0
 
-[node name="HSeparator2" type="HSeparator" parent="Options/TabContainer/Audio/VBoxContainer"]
+[node name="HSeparator3" type="HSeparator" parent="Audio/VBoxContainer"]
 clip_contents = true
-custom_minimum_size = Vector2(1400, 0)
+custom_minimum_size = Vector2(1272, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 40
 theme_override_styles/separator = SubResource("StyleBoxFlat_htc6u")
 
-[node name="SFX" type="HBoxContainer" parent="Options/TabContainer/Audio/VBoxContainer"]
+[node name="SFX" type="HBoxContainer" parent="Audio/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Options/TabContainer/Audio/VBoxContainer/SFX"]
+[node name="Label" type="Label" parent="Audio/VBoxContainer/SFX"]
 custom_minimum_size = Vector2(700, 140)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_uwe2x")
@@ -336,28 +468,46 @@ theme_override_font_sizes/font_size = 100
 text = "SGX volume"
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="Options/TabContainer/Audio/VBoxContainer/SFX"]
-custom_minimum_size = Vector2(700, 140)
+[node name="sfxvol" type="HSlider" parent="Audio/VBoxContainer/SFX"]
+custom_minimum_size = Vector2(567, 140)
 layout_mode = 2
 size_flags_vertical = 1
+focus_mode = 0
 max_value = 2.0
 step = 0.05
 value = 1.0
 
-[node name="HSeparator3" type="HSeparator" parent="Options/TabContainer/Audio/VBoxContainer"]
+[node name="HSeparator4" type="HSeparator" parent="Audio/VBoxContainer"]
 clip_contents = true
-custom_minimum_size = Vector2(1400, 0)
+custom_minimum_size = Vector2(1272, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 40
 theme_override_styles/separator = SubResource("StyleBoxFlat_htc6u")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(960, 540)
+[node name="Main2" type="Button" parent="."]
+offset_left = 2120.0
+offset_top = 560.0
+offset_right = 2268.0
+offset_bottom = 756.0
+rotation = -3.14159
+size_flags_horizontal = 0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("1_uwe2x")
+theme_override_font_sizes/font_size = 140
+text = "➺"
+flat = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_1icsw")
-}
-
-[connection signal="pressed" from="Main/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Main/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Main/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Main/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="item_selected" from="Video/VBoxContainer/Screenmode/scrmod" to="." method="_on_scrmod_item_selected"]
+[connection signal="item_selected" from="Video/VBoxContainer/Resolution/reso" to="." method="_on_reso_item_selected"]
+[connection signal="value_changed" from="Video/VBoxContainer/Brightness/bright" to="." method="_on_bright_value_changed"]
+[connection signal="pressed" from="Video/VBoxContainer/Vsync/vsync" to="." method="_on_vsync_pressed"]
+[connection signal="pressed" from="Video/VBoxContainer/Audio" to="." method="_on_audio_pressed"]
+[connection signal="pressed" from="Audio/VBoxContainer/Video" to="." method="_on_video_pressed"]
+[connection signal="value_changed" from="Audio/VBoxContainer/Master/mastvol" to="." method="_on_mastvol_value_changed"]
+[connection signal="value_changed" from="Audio/VBoxContainer/Music/musivol" to="." method="_on_musivol_value_changed"]
+[connection signal="value_changed" from="Audio/VBoxContainer/SFX/sfxvol" to="." method="_on_sfxvol_value_changed"]
+[connection signal="pressed" from="Main2" to="." method="_on_main_2_pressed"]
