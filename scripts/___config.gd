@@ -16,7 +16,6 @@ func _ready():
 		DisplayServer.window_set_vsync_mode(con.get_value("VIDEO", "Vsync"))
 		for i in AudioServer.bus_count:
 			AudioServer.set_bus_volume_db(i, con.get_value("AUDIO", AudioServer.get_bus_name(i)))
-
 	else:
 		con.set_value("VIDEO", "Screenmode", DisplayServer.window_get_mode())
 		con.set_value("VIDEO", "Resolution", DisplayServer.window_get_size())
