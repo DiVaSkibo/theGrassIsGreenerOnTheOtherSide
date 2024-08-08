@@ -63,7 +63,7 @@ func _physics_process(delta):
 		elif Input.is_action_pressed("attack") and $AttackCoolDown.is_stopped():
 			var potion = POTION.instantiate()
 			potion.is_boost = false
-			if $AnimatedSprite2D.animation == "jump":
+			if $AnimatedSprite2D.animation in ["jump", "fly", "jump_out"]:
 					potion.force_y = velocity.y / 3
 			elif direction:
 				potion.force_x = speed
@@ -89,17 +89,20 @@ func _physics_process(delta):
 			velocity.y = 0
 			$DashDuration.start()
 			$AnimatedSprite2D.play("dash")
-		elif is_on_floor() and not $AnimatedSprite2D.animation.begins_with("attack"):
+		elif Input.is_action_just_pressed("jump"):
+			$AnimatedSprite2D.play("jump")
+		elif is_on_floor() and $AnimatedSprite2D.animation == "fly":
+			$AnimatedSprite2D.play("jump_out")
+		elif is_on_floor() and $AnimatedSprite2D.animation not in ["jump_out", "attack", "attack_out"]:
 			if direction == 0:
 				$AnimatedSprite2D.play("idle")
 			else:
 				$AnimatedSprite2D.play("run")
-		else:
+		elif not is_on_floor():
 			# air resistence in left/right
 			velocity.x = lerp(prev_velocity.x, velocity.x, 0.1)
-			if not $AnimatedSprite2D.animation.begins_with("attack"):
-				$AnimatedSprite2D.play("jump")
-
+			if $AnimatedSprite2D.animation not in ["jump", "attack", "attack_out"]:
+				$AnimatedSprite2D.play("fly")
 	prev_velocity = velocity
 	move_and_slide()
 
@@ -118,6 +121,10 @@ func heal(value: int):
 func _on_animated_sprite_2d_animation_finished():
 	match $AnimatedSprite2D.animation:
 		"attack_out":
+			$AnimatedSprite2D.play("idle")
+		"jump":
+			$AnimatedSprite2D.play("fly")
+		"jump_out":
 			$AnimatedSprite2D.play("idle")
 
 func _on_dash_duration_timeout():

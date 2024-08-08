@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://lhug5n4b1x8b"]
+[gd_scene load_steps=50 format=3 uid="uid://lhug5n4b1x8b"]
 
 [ext_resource type="Script" path="res://scripts/mc_witch_movement.gd" id="1_3au2p"]
 [ext_resource type="Texture2D" uid="uid://ckvah68pif6ar" path="res://resources/assets/mc_witch/grab/frame0000.png" id="2_0pjt5"]
@@ -35,10 +35,16 @@
 [ext_resource type="Texture2D" uid="uid://bctqmnpiq1es5" path="res://resources/assets/mc_witch/walk/frame0002.png" id="29_p1jtv"]
 [ext_resource type="Texture2D" uid="uid://dsqmf3gcpw2dx" path="res://resources/assets/mc_witch/walk/frame0003.png" id="30_bemme"]
 [ext_resource type="Texture2D" uid="uid://3tcy30jjglep" path="res://resources/assets/mc_witch/walk/frame0004.png" id="31_naaio"]
+[ext_resource type="Texture2D" uid="uid://cbn07v6vcumn6" path="res://resources/assets/mc_witch/jump/frame0000.png" id="31_v2u8o"]
+[ext_resource type="Texture2D" uid="uid://dpwxcvxgjimry" path="res://resources/assets/mc_witch/jump/frame0001.png" id="32_y0swp"]
 [ext_resource type="Texture2D" uid="uid://yv72uqnkmjai" path="res://resources/assets/mc_witch/walk/frame0005.png" id="32_yftv0"]
 [ext_resource type="Texture2D" uid="uid://o85cr7pnie7e" path="res://resources/assets/mc_witch/walk/frame0006.png" id="33_d2qnn"]
+[ext_resource type="Texture2D" uid="uid://bdrrwdq154bob" path="res://resources/assets/mc_witch/jump/frame0002.png" id="33_vhaqk"]
 [ext_resource type="Texture2D" uid="uid://dyc762fwv828p" path="res://resources/assets/mc_witch/walk/frame0007.png" id="34_8kxl0"]
+[ext_resource type="Texture2D" uid="uid://cjxh2cnvue5vn" path="res://resources/assets/mc_witch/jump/frame0003.png" id="34_y3tax"]
+[ext_resource type="Texture2D" uid="uid://ttuiqe8dha0h" path="res://resources/assets/mc_witch/jump/frame0004.png" id="35_b80i3"]
 [ext_resource type="Texture2D" uid="uid://kg5h0ej2372k" path="res://just_test_sprites/0hp.png" id="36_g4pd4"]
+[ext_resource type="Texture2D" uid="uid://v36mj4g4gsmj" path="res://resources/assets/mc_witch/jump/frame0005.png" id="36_o0mr6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1a1pr"]
 shader = ExtResource("2_waded")
@@ -115,6 +121,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("36_o0mr6")
+}],
+"loop": false,
+"name": &"fly",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("2_0pjt5")
 }, {
 "duration": 1.0,
@@ -173,11 +187,37 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("31_naaio")
+"texture": ExtResource("31_v2u8o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_y0swp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_vhaqk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_y3tax")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_b80i3")
 }],
 "loop": false,
 "name": &"jump",
-"speed": 15.0
+"speed": 14.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("33_vhaqk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_y0swp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_v2u8o")
+}],
+"loop": false,
+"name": &"jump_out",
+"speed": 14.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -243,8 +283,10 @@ material = SubResource("ShaderMaterial_1a1pr")
 position = Vector2(-5.96046e-08, 0)
 scale = Vector2(0.0550164, 0.0550164)
 sprite_frames = SubResource("SpriteFrames_emsgu")
-animation = &"attack_out"
+animation = &"jump_out"
 autoplay = "idle"
+frame = 2
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1.71277)
