@@ -465,7 +465,7 @@ custom_minimum_size = Vector2(700, 140)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_uwe2x")
 theme_override_font_sizes/font_size = 100
-text = "SGX volume"
+text = "SFX volume"
 vertical_alignment = 1
 
 [node name="sfxvol" type="HSlider" parent="Audio/VBoxContainer/SFX"]
