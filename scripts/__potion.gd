@@ -25,7 +25,7 @@ func _process(delta):
 
 #		SIGNAL
 func _on_area_2d_body_entered(body):
-	if (body.name.begins_with("enemy") or body.name.begins_with("floor")) and not $AudioStreamPlayer2D.playing:
+	if (body.name.begins_with("Enemy") or body.name.begins_with("floor")) and not $AudioStreamPlayer2D.playing:
 		$AudioStreamPlayer2D.pitch_scale = randf_range(0.8, 1.2)
 		$AudioStreamPlayer2D.play()
 		var effect = EFFECT.instantiate()

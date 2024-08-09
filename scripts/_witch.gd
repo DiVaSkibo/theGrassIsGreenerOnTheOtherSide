@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal hit(value : int)
+signal heal(value : int)
 
 #		CONST
 const HEALTH := 6

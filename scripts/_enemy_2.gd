@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal hit(value : int)
+signal heal(value : int)
 
 #		CONST
 const HEALTH := 6
@@ -47,8 +48,6 @@ func _on_animated_sprite_2d_animation_finished():
 		$AnimatedSprite2D.play("attack")
 	else:
 		$AnimatedSprite2D.play("idle")
-	if is_victim_in_attack_area:
-		hit.emit(1)
 
 func _on_detection_area_body_entered(body):
 	if body.name == "Witch":
@@ -61,6 +60,10 @@ func _on_attack_area_body_entered(body):
 	if body == victim:
 		is_victim_in_attack_area = true
 		$AnimatedSprite2D.play("attack")
+		await $AnimatedSprite2D.animation_finished
+		if is_victim_in_attack_area:
+			body.hit.emit(1)
+
 func _on_attack_area_body_exited(body):
 	if body == victim:
 		is_victim_in_attack_area = false
@@ -70,4 +73,6 @@ func _on_hit(value):
 	var tween = get_tree().create_tween()
 	tween.tween_method(blink_intensity, 0.0, 4.0, 0.2)
 	tween.tween_method(blink_intensity, 4.0, 0.0, 0.5)
+func _on_heal(value):
+	health += value
 

@@ -38,6 +38,3 @@ position = Vector2(344, 479)
 
 [node name="Witch" parent="." instance=ExtResource("3_bpqft")]
 position = Vector2(-347, 477)
-
-[connection signal="heal" from="HealArea" to="Witch" method="_on_heal"]
-[connection signal="hit" from="Enemy2" to="Witch" method="_on_hit"]
