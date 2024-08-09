@@ -221,7 +221,6 @@ autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 7.01922)
-scale = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_fx1pu")
 
 [node name="DetectionArea" type="Area2D" parent="."]

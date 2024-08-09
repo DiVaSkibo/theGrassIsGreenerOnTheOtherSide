@@ -8,8 +8,8 @@ const MAX_AMOUNT_OF_WORDS = 7
 func say(words : String, coordinate : Vector2):
 	$MarginContainer/Label.text = ""
 	size = Vector2(0, 0)
-	global_position.x = coordinate.x - size.x / 4
-	global_position.y = coordinate.y - size.y
+	global_position.x = coordinate.x
+	global_position.y = coordinate.y
 	var k = 0
 	for letter in words:
 		$LetterDuration.start()

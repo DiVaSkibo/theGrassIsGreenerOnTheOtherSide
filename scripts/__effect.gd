@@ -8,14 +8,14 @@ func _ready():
 	if is_boost:
 		$AnimatedSprite2D.play("boost")
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	for body in get_overlapping_bodies():
 		if body is CharacterBody2D and not is_boost:
 			pass
 		elif body is CharacterBody2D:
 			body.velocity = 3 * force * (body.global_position - global_position).normalized()
 		elif body is RigidBody2D:
-			body.apply_central_impulse((force / 2) * (body.global_position - global_position).normalized())
+			body.apply_central_impulse(force * (body.global_position - global_position).normalized())
 
 
 func _on_body_entered(body):
