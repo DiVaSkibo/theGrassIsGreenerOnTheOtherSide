@@ -4,10 +4,10 @@ signal hit(value : int)
 signal heal(value : int)
 
 #		CONST
-const HEALTH := 6
+const HEALTH := 3
 
 #		VAR
-@export_range(0, 6) var health := 6
+@export_range(0, 6) var health := HEALTH
 
 @export_range(0, 1000) var speed := 180
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")

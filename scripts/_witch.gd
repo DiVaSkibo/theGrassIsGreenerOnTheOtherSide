@@ -10,7 +10,7 @@ const POTION = preload("res://scenes/__Potion.tscn")
 const STEP_FLOOR = preload("res://resources/audio/467784_sgak_step (mp3cut.net).mp3")
 const STEP_GRASS = preload("res://resources/audio/514254__jtn191__footstep4.wav")
 #		VAR
-@export_range(0, 6) var health := 6
+@export_range(0, 6) var health := HEALTH
 @export_range(0, 2000) var speed := 520
 @export_range(-2000, 0) var jump_height := -1100
 @export_range(0, 2000) var dash_speed := 1100

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cbv700opojca3"]
+[gd_scene load_steps=7 format=3 uid="uid://cbv700opojca3"]
 
 [ext_resource type="PackedScene" uid="uid://d18diacrdvtui" path="res://scenes/_Enemy2.tscn" id="2_b0d4k"]
 [ext_resource type="PackedScene" uid="uid://chycdhq2bglxf" path="res://scenes/_Witch.tscn" id="3_bpqft"]
 [ext_resource type="PackedScene" uid="uid://himy2c8yo5sa" path="res://scenes/_HealArea.tscn" id="3_fth56"]
 [ext_resource type="PackedScene" uid="uid://cgl7d3h2645cm" path="res://scenes/__DialogArea.tscn" id="4_v7w1o"]
+[ext_resource type="PackedScene" uid="uid://cbcey6bevtj4n" path="res://scenes/_Enemy1.tscn" id="5_o12tw"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3rvhb"]
 
@@ -33,8 +34,11 @@ dialog = Array[String](["Bwi jrjw irj wo pawro ow krm 2m9 928h 8520 58h!", "kofk
 [node name="HealArea" parent="." instance=ExtResource("3_fth56")]
 position = Vector2(-796, 546)
 
+[node name="Enemy1" parent="." instance=ExtResource("5_o12tw")]
+position = Vector2(402, 513)
+
 [node name="Enemy2" parent="." instance=ExtResource("2_b0d4k")]
-position = Vector2(344, 479)
+position = Vector2(1258, 471)
 
 [node name="Witch" parent="." instance=ExtResource("3_bpqft")]
 position = Vector2(-347, 477)
