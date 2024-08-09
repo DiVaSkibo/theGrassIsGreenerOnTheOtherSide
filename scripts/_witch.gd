@@ -150,12 +150,3 @@ func _on_heal(value):
 		$Health.get_child(health).texture = load("res://just_test_sprites/1hp.png")
 		health += 1
 
-func _on_area_2d_body_entered(body):
-	if body.name == "Witch":
-		var textbox = TEXT_BOX.instantiate()
-		add_child(textbox)
-		for words in ["Bababuj i Kleshni Kraba! ROJfoogeo owg fog... wr wpwPWR wp LR pRLW 2484052$", "I shto teper?", "Pffffffffffffffffffff"]:
-			textbox.say(words, global_position)
-			await textbox.words_finished
-		textbox.queue_free()
-

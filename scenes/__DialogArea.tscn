@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgl7d3h2645cm"]
+
+[ext_resource type="Script" path="res://scripts/__dialog_area.gd" id="1_pecbx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ytsbm"]
+radius = 30.0
+height = 904.0
+
+[node name="DialogArea" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_pecbx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ytsbm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

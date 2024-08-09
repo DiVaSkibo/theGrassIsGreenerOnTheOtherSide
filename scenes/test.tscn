@@ -3,11 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://d18diacrdvtui" path="res://scenes/_Enemy2.tscn" id="2_b0d4k"]
 [ext_resource type="PackedScene" uid="uid://chycdhq2bglxf" path="res://scenes/_Witch.tscn" id="3_bpqft"]
 [ext_resource type="PackedScene" uid="uid://himy2c8yo5sa" path="res://scenes/_HealArea.tscn" id="3_fth56"]
+[ext_resource type="PackedScene" uid="uid://cgl7d3h2645cm" path="res://scenes/__DialogArea.tscn" id="4_v7w1o"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3rvhb"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x5pjw"]
-size = Vector2(63, 530)
 
 [node name="Node2D" type="Node2D"]
 
@@ -28,16 +26,12 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(70, 575)
 shape = SubResource("WorldBoundaryShape2D_3rvhb")
 
+[node name="DialogArea" parent="." instance=ExtResource("4_v7w1o")]
+position = Vector2(-1042, 151)
+dialog = Array[String](["Bwi jrjw irj wo pawro ow krm 2m9 928h 8520 58h!", "kofk  OFK oO Oor k0 50 005 050%) k k 050 - ?"])
+
 [node name="HealArea" parent="." instance=ExtResource("3_fth56")]
 position = Vector2(-796, 546)
-
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(-1006, 312)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_x5pjw")
 
 [node name="Enemy2" parent="." instance=ExtResource("2_b0d4k")]
 position = Vector2(344, 479)
@@ -46,5 +40,4 @@ position = Vector2(344, 479)
 position = Vector2(-347, 477)
 
 [connection signal="heal" from="HealArea" to="Witch" method="_on_heal"]
-[connection signal="body_entered" from="Area2D" to="Witch" method="_on_area_2d_body_entered"]
 [connection signal="hit" from="Enemy2" to="Witch" method="_on_hit"]
