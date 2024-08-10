@@ -1,0 +1,108 @@
+[gd_scene load_steps=8 format=3 uid="uid://blm1667ygqsqt"]
+
+[ext_resource type="Texture2D" uid="uid://ctiwxjchd0i74" path="res://resources/assets/bg/house/room/wall.png" id="1_bstco"]
+[ext_resource type="Texture2D" uid="uid://bvx3jgoxrqttw" path="res://resources/assets/bg/house/room/floor.png" id="2_sto0w"]
+[ext_resource type="Texture2D" uid="uid://dgl4nlu0iork7" path="res://resources/assets/bg/house/room/front_wall.png" id="3_rxmff"]
+[ext_resource type="PackedScene" uid="uid://chycdhq2bglxf" path="res://scenes/_Witch.tscn" id="4_qxhko"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7dw0l"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_y8gwp"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kye5k"]
+normal = Vector2(-1, 0)
+
+[node name="Home" type="Node2D"]
+
+[node name="Back" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Back"]
+
+[node name="ColorRect" type="ColorRect" parent="Back/ParallaxLayer"]
+offset_left = -1171.0
+offset_top = -780.0
+offset_right = 3826.0
+offset_bottom = 1227.0
+color = Color(0, 0, 0, 1)
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Back"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Back/ParallaxLayer2"]
+position = Vector2(920, 336)
+scale = Vector2(0.345618, 0.345618)
+texture = ExtResource("1_bstco")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Back"]
+
+[node name="Sprite2D3" type="Sprite2D" parent="Back/ParallaxLayer3"]
+position = Vector2(920, 336)
+scale = Vector2(0.345618, 0.345618)
+texture = ExtResource("2_sto0w")
+
+[node name="floor" type="StaticBody2D" parent="."]
+position = Vector2(930, 501)
+scale = Vector2(0.345618, 0.345618)
+collision_layer = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
+shape = SubResource("WorldBoundaryShape2D_7dw0l")
+
+[node name="wall" type="StaticBody2D" parent="."]
+position = Vector2(6.10352e-05, 304)
+scale = Vector2(0.345618, 0.345618)
+collision_layer = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall"]
+shape = SubResource("WorldBoundaryShape2D_y8gwp")
+
+[node name="wall2" type="StaticBody2D" parent="."]
+position = Vector2(1834, 323)
+scale = Vector2(0.345618, 0.345618)
+collision_layer = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall2"]
+shape = SubResource("WorldBoundaryShape2D_kye5k")
+
+[node name="Witch" parent="." instance=ExtResource("4_qxhko")]
+position = Vector2(296, 411)
+
+[node name="Camera2D3" type="Camera2D" parent="Witch"]
+position = Vector2(-0.285471, -36.8246)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(920, 336)
+scale = Vector2(0.345618, 0.345618)
+texture = ExtResource("3_rxmff")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -1171.0
+offset_top = -780.0
+offset_right = 5.0
+offset_bottom = 1227.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -1072.0
+offset_top = -780.0
+offset_right = 3305.0
+offset_bottom = 6.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = -1171.0
+offset_top = 545.0
+offset_right = 3830.0
+offset_bottom = 1227.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+offset_left = 1874.0
+offset_top = -780.0
+offset_right = 3050.0
+offset_bottom = 1227.0
+color = Color(0, 0, 0, 1)

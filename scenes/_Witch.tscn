@@ -281,10 +281,6 @@ collision_mask = 2
 script = ExtResource("1_1w434")
 dash_speed = 1000
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position_smoothing_enabled = true
-position_smoothing_speed = 6.0
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_1a1pr")
 position = Vector2(-5.96046e-08, 0)
@@ -299,7 +295,6 @@ shape = SubResource("CapsuleShape2D_3krfp")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(0, -15.9859)
-scale = Vector2(1, 1)
 emitting = false
 amount = 10
 process_material = SubResource("ParticleProcessMaterial_cnu4x")
