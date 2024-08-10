@@ -5,13 +5,9 @@
 [ext_resource type="FontFile" uid="uid://1qt0bkhnm3c1" path="res://resources/VictoriaCAT.ttf" id="3_ugdu7"]
 
 [node name="text_box" type="MarginContainer"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -1080.0
-offset_right = 251.0
-offset_bottom = -780.0
-grow_vertical = 0
+offset_right = 260.0
+offset_bottom = 300.0
+scale = Vector2(0.160767, 0.160767)
 script = ExtResource("1_m1xoc")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]

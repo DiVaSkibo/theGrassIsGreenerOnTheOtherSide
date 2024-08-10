@@ -2,14 +2,14 @@ extends MarginContainer
 
 signal words_finished
 
-const MAX_AMOUNT_OF_WORDS = 7
+const MAX_AMOUNT_OF_WORDS = 10
 
 
 func say(words : String, coordinate : Vector2):
 	$MarginContainer/Label.text = ""
 	size = Vector2(0, 0)
 	global_position.x = coordinate.x
-	global_position.y = coordinate.y
+	global_position.y = coordinate.y - 240
 	var k = 0
 	for letter in words:
 		$LetterDuration.start()
