@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://chycdhq2bglxf"]
+[gd_scene load_steps=52 format=3 uid="uid://chycdhq2bglxf"]
 
 [ext_resource type="Script" path="res://scripts/_witch.gd" id="1_1w434"]
 [ext_resource type="Shader" path="res://resources/shaders/blink.gdshader" id="2_1w51g"]
@@ -254,6 +254,15 @@ animations = [{
 radius = 4.85286
 height = 50.2414
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cnu4x"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 10.0
+initial_velocity_max = 10.0
+radial_velocity_max = 10.0
+gravity = Vector3(0, 100, 0)
+scale_max = 3.0
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tnkbn"]
 particle_flag_disable_z = true
 emission_shape = 1
@@ -289,18 +298,17 @@ position = Vector2(0, 1.71277)
 shape = SubResource("CapsuleShape2D_3krfp")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-position = Vector2(0, -15.1295)
+position = Vector2(0, -15.9859)
+scale = Vector2(1, 1)
 emitting = false
-amount = 12
-process_material = SubResource("ParticleProcessMaterial_tnkbn")
-lifetime = 2.0
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_cnu4x")
+lifetime = 1.5
 one_shot = true
-speed_scale = 2.0
 explosiveness = 1.0
 
 [node name="DashParticles" type="GPUParticles2D" parent="."]
 position = Vector2(0, 21.9806)
-scale = Vector2(1, 1)
 emitting = false
 amount = 30
 process_material = SubResource("ParticleProcessMaterial_tnkbn")
