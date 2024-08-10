@@ -30,30 +30,6 @@ size = Vector2(107, 536)
 [node name="Home" type="Node2D"]
 script = ExtResource("1_4hp6h")
 
-[node name="floor" type="StaticBody2D" parent="."]
-position = Vector2(930, 501)
-scale = Vector2(0.345618, 0.345618)
-collision_layer = 7
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
-shape = SubResource("WorldBoundaryShape2D_7dw0l")
-
-[node name="floor2" type="StaticBody2D" parent="."]
-position = Vector2(6.10352e-05, 304)
-scale = Vector2(0.345618, 0.345618)
-collision_layer = 7
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="floor2"]
-shape = SubResource("WorldBoundaryShape2D_y8gwp")
-
-[node name="floor3" type="StaticBody2D" parent="."]
-position = Vector2(1929, 326)
-scale = Vector2(0.345618, 0.345618)
-collision_layer = 7
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="floor3"]
-shape = SubResource("WorldBoundaryShape2D_kye5k")
-
 [node name="Back" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Back"]
@@ -82,27 +58,47 @@ position = Vector2(239, 416)
 scale = Vector2(0.461606, 0.461606)
 texture = ExtResource("4_u1bjq")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Back/ParallaxLayer2"]
+[node name="floor" type="StaticBody2D" parent="."]
+position = Vector2(930, 501)
+scale = Vector2(0.345618, 0.345618)
+collision_layer = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
+shape = SubResource("WorldBoundaryShape2D_7dw0l")
+
+[node name="wall" type="StaticBody2D" parent="."]
+position = Vector2(6.10352e-05, 304)
+scale = Vector2(0.345618, 0.345618)
+collision_layer = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall"]
+shape = SubResource("WorldBoundaryShape2D_y8gwp")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="wall"]
+position = Vector2(5581.31, 63.6541)
+shape = SubResource("WorldBoundaryShape2D_kye5k")
+
+[node name="shelf" type="StaticBody2D" parent="."]
+collision_layer = 7
+
+[node name="Sprite2D2" type="Sprite2D" parent="shelf"]
 position = Vector2(924.71, 443.5)
 scale = Vector2(0.330904, 0.330904)
 texture = ExtResource("5_tttng")
 
-[node name="Sprite2D3" type="Sprite2D" parent="Back/ParallaxLayer2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shelf"]
+position = Vector2(917.5, 450)
+shape = SubResource("RectangleShape2D_ypcqk")
+
+[node name="manicen" type="StaticBody2D" parent="."]
+collision_layer = 5
+
+[node name="Sprite2D3" type="Sprite2D" parent="manicen"]
 position = Vector2(1656, 386)
 scale = Vector2(0.311348, 0.311348)
 texture = ExtResource("6_cvdf7")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 7
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(917.5, 450)
-shape = SubResource("RectangleShape2D_ypcqk")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-collision_layer = 5
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="manicen"]
 position = Vector2(1657, 342)
 shape = SubResource("CapsuleShape2D_qy2eo")
 
