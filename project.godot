@@ -11,8 +11,10 @@ config_version=5
 [application]
 
 config/name="theGrassIsGreenerOnTheOtherSide"
-run/main_scene="res://scenes/movement_test_scene.tscn"
+run/main_scene="res://scenes/Menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://resources/Gentlegoose ^ ukr ^ the icon # iota % triangle.png"
 config/icon="res://icon.svg"
 
 [autoload]

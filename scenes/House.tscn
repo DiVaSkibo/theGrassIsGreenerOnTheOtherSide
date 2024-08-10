@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://blm1667ygqsqt"]
+[gd_scene load_steps=10 format=3 uid="uid://blm1667ygqsqt"]
 
+[ext_resource type="Script" path="res://scripts/house.gd" id="1_4hp6h"]
 [ext_resource type="Texture2D" uid="uid://ctiwxjchd0i74" path="res://resources/assets/bg/house/room/wall.png" id="1_bstco"]
 [ext_resource type="Texture2D" uid="uid://bvx3jgoxrqttw" path="res://resources/assets/bg/house/room/floor.png" id="2_sto0w"]
 [ext_resource type="Texture2D" uid="uid://dgl4nlu0iork7" path="res://resources/assets/bg/house/room/front_wall.png" id="3_rxmff"]
@@ -13,7 +14,11 @@ normal = Vector2(1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kye5k"]
 normal = Vector2(-1, 0)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tiwdi"]
+size = Vector2(107, 536)
+
 [node name="Home" type="Node2D"]
+script = ExtResource("1_4hp6h")
 
 [node name="Back" type="ParallaxBackground" parent="."]
 
@@ -48,28 +53,39 @@ collision_layer = 7
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
 shape = SubResource("WorldBoundaryShape2D_7dw0l")
 
-[node name="wall" type="StaticBody2D" parent="."]
+[node name="floor2" type="StaticBody2D" parent="."]
 position = Vector2(6.10352e-05, 304)
 scale = Vector2(0.345618, 0.345618)
 collision_layer = 7
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor2"]
 shape = SubResource("WorldBoundaryShape2D_y8gwp")
 
-[node name="wall2" type="StaticBody2D" parent="."]
-position = Vector2(1834, 323)
+[node name="floor3" type="StaticBody2D" parent="."]
+position = Vector2(1929, 326)
 scale = Vector2(0.345618, 0.345618)
 collision_layer = 7
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wall2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor3"]
 shape = SubResource("WorldBoundaryShape2D_kye5k")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1892, 17)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(15.5, 258)
+shape = SubResource("RectangleShape2D_tiwdi")
 
 [node name="Witch" parent="." instance=ExtResource("4_qxhko")]
 position = Vector2(296, 411)
 
-[node name="Camera2D3" type="Camera2D" parent="Witch"]
+[node name="Camera2D4" type="Camera2D" parent="Witch"]
 position = Vector2(-0.285471, -36.8246)
 zoom = Vector2(2, 2)
+limit_top = 0
+limit_bottom = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 6.0
 
@@ -101,8 +117,10 @@ offset_bottom = 1227.0
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="."]
-offset_left = 1874.0
+offset_left = 1836.0
 offset_top = -780.0
 offset_right = 3050.0
 offset_bottom = 1227.0
 color = Color(0, 0, 0, 1)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

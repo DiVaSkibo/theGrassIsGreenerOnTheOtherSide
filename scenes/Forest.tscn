@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbexrromm684b"]
+
+[ext_resource type="PackedScene" uid="uid://chycdhq2bglxf" path="res://scenes/_Witch.tscn" id="1_ep0he"]
+[ext_resource type="Texture2D" uid="uid://b4aqkmtnbyd10" path="res://resources/assets/bg/forest/foliage/tree_01.png" id="1_m503r"]
+[ext_resource type="Script" path="res://scripts/forest.gd" id="1_magip"]
+[ext_resource type="Texture2D" uid="uid://b641b7wefu64b" path="res://resources/assets/bg/house/house_itself.png" id="2_wsbya"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3ij2k"]
+radius = 59.0
+height = 314.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_agukx"]
+normal = Vector2(0, -1000)
+
+[node name="Forest" type="Node2D"]
+script = ExtResource("1_magip")
+
+[node name="Back" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Back"]
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Back"]
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Back"]
+
+[node name="house" type="Sprite2D" parent="Back/ParallaxLayer3"]
+position = Vector2(-818, 116)
+scale = Vector2(0.353537, 0.353537)
+texture = ExtResource("2_wsbya")
+
+[node name="Sprite2D" type="Sprite2D" parent="Back/ParallaxLayer3"]
+position = Vector2(1097, 223)
+scale = Vector2(0.177477, 0.177477)
+texture = ExtResource("1_m503r")
+
+[node name="door" type="Area2D" parent="."]
+position = Vector2(177, 664)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door"]
+shape = SubResource("CapsuleShape2D_3ij2k")
+
+[node name="floor" type="StaticBody2D" parent="."]
+position = Vector2(960, 767)
+collision_layer = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
+shape = SubResource("WorldBoundaryShape2D_agukx")
+
+[node name="Witch" parent="." instance=ExtResource("1_ep0he")]
+position = Vector2(189, 672)
+
+[node name="Camera2D4" type="Camera2D" parent="Witch"]
+position = Vector2(-0.285471, -36.8246)
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
+
+[connection signal="body_entered" from="door" to="." method="_on_door_body_entered"]
+[connection signal="body_exited" from="door" to="." method="_on_door_body_exited"]

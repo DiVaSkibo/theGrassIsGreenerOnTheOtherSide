@@ -42,7 +42,7 @@ func _on_options_pressed():
 func _on_play_pressed():
 	Transition.play()
 	await Transition.finished
-	get_tree().change_scene_to_file("res://scenes/test.tscn")
+	get_tree().change_scene_to_file("res://scenes/House.tscn")
 func _on_exit_pressed():
 	get_tree().quit()
 

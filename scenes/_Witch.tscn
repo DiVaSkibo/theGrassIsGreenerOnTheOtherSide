@@ -316,11 +316,12 @@ stream = ExtResource("45_yitrd")
 bus = &"SFX"
 
 [node name="Health" type="GridContainer" parent="."]
-offset_left = -53.0
-offset_top = -92.0
-offset_right = 4767.0
-offset_bottom = 508.0
-scale = Vector2(0.0218787, 0.0218787)
+z_index = 100
+offset_left = 148.155
+offset_top = 88.2078
+offset_right = 4968.15
+offset_bottom = 688.208
+scale = Vector2(0.0170209, 0.0170209)
 columns = 6
 
 [node name="Point0" type="TextureRect" parent="Health"]
