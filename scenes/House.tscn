@@ -1,10 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://blm1667ygqsqt"]
+[gd_scene load_steps=15 format=3 uid="uid://blm1667ygqsqt"]
 
 [ext_resource type="Script" path="res://scripts/house.gd" id="1_4hp6h"]
 [ext_resource type="Texture2D" uid="uid://ctiwxjchd0i74" path="res://resources/assets/bg/house/room/wall.png" id="1_bstco"]
 [ext_resource type="Texture2D" uid="uid://bvx3jgoxrqttw" path="res://resources/assets/bg/house/room/floor.png" id="2_sto0w"]
 [ext_resource type="Texture2D" uid="uid://dgl4nlu0iork7" path="res://resources/assets/bg/house/room/front_wall.png" id="3_rxmff"]
 [ext_resource type="PackedScene" uid="uid://chycdhq2bglxf" path="res://scenes/_Witch.tscn" id="4_qxhko"]
+[ext_resource type="Texture2D" uid="uid://c4l48dib01oal" path="res://resources/assets/bg/house/room/house_bed.png" id="4_u1bjq"]
+[ext_resource type="Texture2D" uid="uid://i7qjqubbehik" path="res://resources/assets/bg/house/room/house_bookshelf.png" id="5_tttng"]
+[ext_resource type="Texture2D" uid="uid://cwo8dsgtlrvyp" path="res://resources/assets/bg/house/room/mr_dum_guy.png" id="6_cvdf7"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7dw0l"]
 
@@ -14,36 +17,18 @@ normal = Vector2(1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kye5k"]
 normal = Vector2(-1, 0)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ypcqk"]
+size = Vector2(265, 112)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qy2eo"]
+radius = 23.0
+height = 152.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tiwdi"]
 size = Vector2(107, 536)
 
 [node name="Home" type="Node2D"]
 script = ExtResource("1_4hp6h")
-
-[node name="Back" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Back"]
-
-[node name="ColorRect" type="ColorRect" parent="Back/ParallaxLayer"]
-offset_left = -1171.0
-offset_top = -780.0
-offset_right = 3826.0
-offset_bottom = 1227.0
-color = Color(0, 0, 0, 1)
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="Back"]
-
-[node name="Sprite2D" type="Sprite2D" parent="Back/ParallaxLayer2"]
-position = Vector2(920, 336)
-scale = Vector2(0.345618, 0.345618)
-texture = ExtResource("1_bstco")
-
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="Back"]
-
-[node name="Sprite2D3" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(920, 336)
-scale = Vector2(0.345618, 0.345618)
-texture = ExtResource("2_sto0w")
 
 [node name="floor" type="StaticBody2D" parent="."]
 position = Vector2(930, 501)
@@ -68,6 +53,58 @@ collision_layer = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor3"]
 shape = SubResource("WorldBoundaryShape2D_kye5k")
+
+[node name="Back" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Back"]
+
+[node name="ColorRect" type="ColorRect" parent="Back/ParallaxLayer"]
+offset_left = -1171.0
+offset_top = -780.0
+offset_right = 3826.0
+offset_bottom = 1227.0
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Back/ParallaxLayer"]
+position = Vector2(920, 336)
+scale = Vector2(0.345618, 0.345618)
+texture = ExtResource("1_bstco")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Back/ParallaxLayer"]
+position = Vector2(920, 336)
+scale = Vector2(0.345618, 0.345618)
+texture = ExtResource("2_sto0w")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Back"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Back/ParallaxLayer2"]
+position = Vector2(239, 416)
+scale = Vector2(0.461606, 0.461606)
+texture = ExtResource("4_u1bjq")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Back/ParallaxLayer2"]
+position = Vector2(924.71, 443.5)
+scale = Vector2(0.330904, 0.330904)
+texture = ExtResource("5_tttng")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Back/ParallaxLayer2"]
+position = Vector2(1656, 386)
+scale = Vector2(0.311348, 0.311348)
+texture = ExtResource("6_cvdf7")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(917.5, 450)
+shape = SubResource("RectangleShape2D_ypcqk")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+collision_layer = 5
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(1657, 342)
+shape = SubResource("CapsuleShape2D_qy2eo")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(1892, 17)
