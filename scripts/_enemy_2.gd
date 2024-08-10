@@ -70,9 +70,17 @@ func _on_attack_area_body_exited(body):
 
 func _on_hit(value):
 	health -= value
+	$AnimatedSprite2D.material.set_shader_parameter("blink_color", Color("d83000"))
 	var tween = get_tree().create_tween()
 	tween.tween_method(blink_intensity, 0.0, 4.0, 0.2)
 	tween.tween_method(blink_intensity, 4.0, 0.0, 0.5)
+	if health <= 0:
+		queue_free()
 func _on_heal(value):
-	health += value
+	if health != HEALTH:
+		health += value
+		$AnimatedSprite2D.material.set_shader_parameter("blink_color", Color("7fce63de"))
+		var tween = get_tree().create_tween()
+		tween.tween_method(blink_intensity, 0.0, 4.0, 0.2)
+		tween.tween_method(blink_intensity, 4.0, 0.0, 0.5)
 

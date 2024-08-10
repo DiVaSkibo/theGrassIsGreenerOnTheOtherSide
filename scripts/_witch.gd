@@ -5,7 +5,6 @@ signal heal(value : int)
 
 #		CONST
 const HEALTH := 6
-const TEXT_BOX = preload("res://scenes/___TextBox.tscn")
 const POTION = preload("res://scenes/__Potion.tscn")
 const STEP_FLOOR = preload("res://resources/audio/467784_sgak_step (mp3cut.net).mp3")
 const STEP_GRASS = preload("res://resources/audio/514254__jtn191__footstep4.wav")
@@ -95,6 +94,7 @@ func _physics_process(delta):
 			velocity.x = dash_speed * direction
 			velocity.y = 0
 			$DashDuration.start()
+			$DashParticles.emitting = true
 			$AnimatedSprite2D.play("dash")
 		elif Input.is_action_just_pressed("jump"):
 			$AnimatedSprite2D.play("jump")
@@ -140,15 +140,23 @@ func _on_hit(value):
 			break
 		health -= 1
 		$Health.get_child(health).texture = load("res://just_test_sprites/0hp.png")
+	$AnimatedSprite2D.material.set_shader_parameter("blink_color", Color("ff5affde"))
 	var tween = get_tree().create_tween()
 	tween.tween_method(blink_intensity, 0.0, 4.0, 0.2)
 	tween.tween_method(blink_intensity, 4.0, 0.0, 0.5)
 	$GPUParticles2D.restart()
 	$GPUParticles2D.emitting = true
 func _on_heal(value):
-	for i in value:
-		if health == HEALTH:
-			break
-		$Health.get_child(health).texture = load("res://just_test_sprites/1hp.png")
-		health += 1
+	if health != HEALTH:
+		for i in value:
+			if health == HEALTH:
+				break
+			$Health.get_child(health).texture = load("res://just_test_sprites/1hp.png")
+			health += 1
+		$AnimatedSprite2D.material.set_shader_parameter("blink_color", Color("7fce63de"))
+		var tween = get_tree().create_tween()
+		tween.tween_method(blink_intensity, 0.0, 4.0, 0.2)
+		tween.tween_method(blink_intensity, 4.0, 0.0, 0.5)
+		$GPUParticles2D.restart()
+		$GPUParticles2D.emitting = true
 

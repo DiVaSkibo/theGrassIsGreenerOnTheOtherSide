@@ -49,7 +49,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1a1pr"]
 shader = ExtResource("2_1w51g")
-shader_parameter/blink_color = Color(0.999842, 0.353242, 1, 0.870588)
+shader_parameter/blink_color = Color(0.498039, 0.807843, 0.388235, 0.870588)
 shader_parameter/blink_intensity = 0.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_emsgu"]
@@ -255,18 +255,15 @@ radius = 4.85286
 height = 50.2414
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tnkbn"]
-lifetime_randomness = 0.5
 particle_flag_disable_z = true
 emission_shape = 1
 emission_sphere_radius = 12.0
-initial_velocity_max = 7.0
-gravity = Vector3(0, 70, 0)
-linear_accel_max = 50.0
-radial_accel_max = 50.0
-tangential_accel_max = 50.0
+gravity = Vector3(-200, -40, 0)
+linear_accel_min = -100.0
+tangential_accel_min = -100.0
 damping_max = 50.0
-scale_min = 2.0
-scale_max = 7.0
+scale_max = 6.0
+hue_variation_min = -0.1
 
 [node name="Witch" type="CharacterBody2D"]
 scale = Vector2(3.50309, 3.50309)
@@ -284,10 +281,8 @@ material = SubResource("ShaderMaterial_1a1pr")
 position = Vector2(-5.96046e-08, 0)
 scale = Vector2(0.0550164, 0.0550164)
 sprite_frames = SubResource("SpriteFrames_emsgu")
-animation = &"jump_out"
+animation = &"idle"
 autoplay = "idle"
-frame = 2
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1.71277)
@@ -302,6 +297,16 @@ lifetime = 2.0
 one_shot = true
 speed_scale = 2.0
 explosiveness = 1.0
+
+[node name="DashParticles" type="GPUParticles2D" parent="."]
+position = Vector2(0, 21.9806)
+scale = Vector2(1, 1)
+emitting = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_tnkbn")
+lifetime = 1.5
+one_shot = true
+speed_scale = 4.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("45_yitrd")
