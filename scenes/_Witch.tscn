@@ -2,50 +2,50 @@
 
 [ext_resource type="Script" path="res://scripts/_witch.gd" id="1_1w434"]
 [ext_resource type="Shader" path="res://resources/shaders/blink.gdshader" id="2_1w51g"]
-[ext_resource type="Texture2D" uid="uid://d4guaojxyf1b2" path="res://resources/assets/mc_witch/throwing_attack/frame0000.png" id="3_v318y"]
-[ext_resource type="Texture2D" uid="uid://ehtyq3bbe364" path="res://resources/assets/mc_witch/throwing_attack/frame0001.png" id="4_y75gt"]
-[ext_resource type="Texture2D" uid="uid://bo1h3vwta7l8b" path="res://resources/assets/mc_witch/throwing_attack/frame0002.png" id="5_3hsvr"]
-[ext_resource type="Texture2D" uid="uid://dtkyua58ueha1" path="res://resources/assets/mc_witch/throwing_attack/frame0003.png" id="6_moc5s"]
-[ext_resource type="Texture2D" uid="uid://w7bm6bsncsvt" path="res://resources/assets/mc_witch/throwing_attack/frame0004.png" id="7_nc6ie"]
-[ext_resource type="Texture2D" uid="uid://fpoi5ay7gdv8" path="res://resources/assets/mc_witch/throwing_attack/frame0005.png" id="8_tggs3"]
-[ext_resource type="Texture2D" uid="uid://cy4bguvf3wqq7" path="res://resources/assets/mc_witch/throwing_attack/frame0006.png" id="9_lxj5v"]
-[ext_resource type="Texture2D" uid="uid://duu0wxdtf0lja" path="res://resources/assets/mc_witch/throwing_attack/frame0007.png" id="10_ohse6"]
-[ext_resource type="Texture2D" uid="uid://dxg35kpagajul" path="res://resources/assets/mc_witch/throwing_attack/frame0008.png" id="11_hqvmo"]
-[ext_resource type="Texture2D" uid="uid://c665qhphwdx41" path="res://resources/assets/mc_witch/throwing_attack/frame0009.png" id="12_ku3c5"]
-[ext_resource type="Texture2D" uid="uid://18558brl8lvs" path="res://resources/assets/mc_witch/throwing_attack/frame0010.png" id="13_yi2nq"]
-[ext_resource type="Texture2D" uid="uid://bqyxkwt0abae8" path="res://resources/assets/mc_witch/dash/frame0000.png" id="14_svvpw"]
-[ext_resource type="Texture2D" uid="uid://bwxq45lyp1vj0" path="res://resources/assets/mc_witch/dash/frame0001.png" id="15_5q4ud"]
-[ext_resource type="Texture2D" uid="uid://cxrb42ycgpif1" path="res://resources/assets/mc_witch/dash/frame0002.png" id="16_6m4f8"]
-[ext_resource type="Texture2D" uid="uid://cihiwl1pv44k7" path="res://resources/assets/mc_witch/dash/frame0003.png" id="17_i517k"]
-[ext_resource type="Texture2D" uid="uid://d2a6g1r7gb5gx" path="res://resources/assets/mc_witch/dash/frame0004.png" id="18_ch0i1"]
-[ext_resource type="Texture2D" uid="uid://dcdtjj8m61g5m" path="res://resources/assets/mc_witch/dash/frame0005.png" id="19_dnlxy"]
-[ext_resource type="Texture2D" uid="uid://v36mj4g4gsmj" path="res://resources/assets/mc_witch/jump/frame0005.png" id="20_rmqr2"]
-[ext_resource type="Texture2D" uid="uid://ckvah68pif6ar" path="res://resources/assets/mc_witch/grab/frame0000.png" id="21_bpk14"]
-[ext_resource type="Texture2D" uid="uid://cd4ad4aacxd1h" path="res://resources/assets/mc_witch/grab/frame0001.png" id="22_effj0"]
-[ext_resource type="Texture2D" uid="uid://mmvcvdpecanh" path="res://resources/assets/mc_witch/grab/frame0002.png" id="23_apn0h"]
-[ext_resource type="Texture2D" uid="uid://cse8unafyt1xf" path="res://resources/assets/mc_witch/grab/frame0003.png" id="24_c8mvk"]
-[ext_resource type="Texture2D" uid="uid://hrddxyg37cnu" path="res://resources/assets/mc_witch/grab/frame0004.png" id="25_durai"]
-[ext_resource type="Texture2D" uid="uid://lxl0nrfjyfn3" path="res://resources/assets/mc_witch/grab/frame0005.png" id="26_gflp7"]
-[ext_resource type="Texture2D" uid="uid://bwbbhe8qjuqlo" path="res://resources/assets/mc_witch/idle/frame0000.png" id="27_e1qk3"]
-[ext_resource type="Texture2D" uid="uid://b1y05cag6eap1" path="res://resources/assets/mc_witch/idle/frame0001.png" id="28_6vqk8"]
-[ext_resource type="Texture2D" uid="uid://b2f5rdvfkyby" path="res://resources/assets/mc_witch/idle/frame0002.png" id="29_hwshc"]
-[ext_resource type="Texture2D" uid="uid://b25dxgwdxwegj" path="res://resources/assets/mc_witch/idle/frame0003.png" id="30_akino"]
-[ext_resource type="Texture2D" uid="uid://bthrsa1enexwc" path="res://resources/assets/mc_witch/idle/frame0004.png" id="31_6djuf"]
-[ext_resource type="Texture2D" uid="uid://cbn07v6vcumn6" path="res://resources/assets/mc_witch/jump/frame0000.png" id="32_jbqq6"]
-[ext_resource type="Texture2D" uid="uid://dpwxcvxgjimry" path="res://resources/assets/mc_witch/jump/frame0001.png" id="33_4sd8g"]
-[ext_resource type="Texture2D" uid="uid://bdrrwdq154bob" path="res://resources/assets/mc_witch/jump/frame0002.png" id="34_15v2f"]
-[ext_resource type="Texture2D" uid="uid://cjxh2cnvue5vn" path="res://resources/assets/mc_witch/jump/frame0003.png" id="35_y51aj"]
-[ext_resource type="Texture2D" uid="uid://ttuiqe8dha0h" path="res://resources/assets/mc_witch/jump/frame0004.png" id="36_sjytb"]
-[ext_resource type="Texture2D" uid="uid://br7o2leby78pj" path="res://resources/assets/mc_witch/walk/frame0000.png" id="37_eiaw1"]
-[ext_resource type="Texture2D" uid="uid://cmvb3pbpa0il" path="res://resources/assets/mc_witch/walk/frame0001.png" id="38_jd8ro"]
-[ext_resource type="Texture2D" uid="uid://bctqmnpiq1es5" path="res://resources/assets/mc_witch/walk/frame0002.png" id="39_vxfyo"]
-[ext_resource type="Texture2D" uid="uid://dsqmf3gcpw2dx" path="res://resources/assets/mc_witch/walk/frame0003.png" id="40_0ckyh"]
-[ext_resource type="Texture2D" uid="uid://3tcy30jjglep" path="res://resources/assets/mc_witch/walk/frame0004.png" id="41_7omy7"]
-[ext_resource type="Texture2D" uid="uid://yv72uqnkmjai" path="res://resources/assets/mc_witch/walk/frame0005.png" id="42_kc6q3"]
-[ext_resource type="Texture2D" uid="uid://o85cr7pnie7e" path="res://resources/assets/mc_witch/walk/frame0006.png" id="43_atosh"]
-[ext_resource type="Texture2D" uid="uid://dyc762fwv828p" path="res://resources/assets/mc_witch/walk/frame0007.png" id="44_4cbov"]
-[ext_resource type="AudioStream" uid="uid://iss0jbbnwst5" path="res://resources/audio/514254__jtn191__footstep4.wav" id="45_yitrd"]
-[ext_resource type="Texture2D" uid="uid://kg5h0ej2372k" path="res://just_test_sprites/0hp.png" id="46_8m217"]
+[ext_resource type="Texture2D" uid="uid://csfqsohodxrqe" path="res://resources/assets/mc_witch/throwing_attack/frame0000.png" id="3_v318y"]
+[ext_resource type="Texture2D" uid="uid://debdrsb2yq3ur" path="res://resources/assets/mc_witch/throwing_attack/frame0001.png" id="4_y75gt"]
+[ext_resource type="Texture2D" uid="uid://daikyckufccw0" path="res://resources/assets/mc_witch/throwing_attack/frame0002.png" id="5_3hsvr"]
+[ext_resource type="Texture2D" uid="uid://c0ug7vwpy4rd5" path="res://resources/assets/mc_witch/throwing_attack/frame0003.png" id="6_moc5s"]
+[ext_resource type="Texture2D" uid="uid://d33dotmyylhd6" path="res://resources/assets/mc_witch/throwing_attack/frame0004.png" id="7_nc6ie"]
+[ext_resource type="Texture2D" uid="uid://dks3utjatxri6" path="res://resources/assets/mc_witch/throwing_attack/frame0005.png" id="8_tggs3"]
+[ext_resource type="Texture2D" uid="uid://dedqcf2utn52m" path="res://resources/assets/mc_witch/throwing_attack/frame0006.png" id="9_lxj5v"]
+[ext_resource type="Texture2D" uid="uid://bohb3ksd7ab4d" path="res://resources/assets/mc_witch/throwing_attack/frame0007.png" id="10_ohse6"]
+[ext_resource type="Texture2D" uid="uid://ddroykf0ip0h3" path="res://resources/assets/mc_witch/throwing_attack/frame0008.png" id="11_hqvmo"]
+[ext_resource type="Texture2D" uid="uid://dwp03qtsc5pd8" path="res://resources/assets/mc_witch/throwing_attack/frame0009.png" id="12_ku3c5"]
+[ext_resource type="Texture2D" uid="uid://df36cg1t5mymh" path="res://resources/assets/mc_witch/throwing_attack/frame0010.png" id="13_yi2nq"]
+[ext_resource type="Texture2D" uid="uid://erw4qjc6drd3" path="res://resources/assets/mc_witch/dash/frame0000.png" id="14_svvpw"]
+[ext_resource type="Texture2D" uid="uid://qgn8gsxs2hef" path="res://resources/assets/mc_witch/dash/frame0001.png" id="15_5q4ud"]
+[ext_resource type="Texture2D" uid="uid://bi8gyiux8n8jk" path="res://resources/assets/mc_witch/dash/frame0002.png" id="16_6m4f8"]
+[ext_resource type="Texture2D" uid="uid://cgjy3sjgathhi" path="res://resources/assets/mc_witch/dash/frame0003.png" id="17_i517k"]
+[ext_resource type="Texture2D" uid="uid://bfu7yiy0ue2ly" path="res://resources/assets/mc_witch/dash/frame0004.png" id="18_ch0i1"]
+[ext_resource type="Texture2D" uid="uid://d3lhpbpgk50dn" path="res://resources/assets/mc_witch/dash/frame0005.png" id="19_dnlxy"]
+[ext_resource type="Texture2D" uid="uid://x52ipewtbkh3" path="res://resources/assets/mc_witch/jump/frame0005.png" id="20_rmqr2"]
+[ext_resource type="Texture2D" uid="uid://5x3thuysy7l2" path="res://resources/assets/mc_witch/grab/frame0000.png" id="21_bpk14"]
+[ext_resource type="Texture2D" uid="uid://b3xhvaugllpb3" path="res://resources/assets/mc_witch/grab/frame0001.png" id="22_effj0"]
+[ext_resource type="Texture2D" uid="uid://c5yufvpv38vmy" path="res://resources/assets/mc_witch/grab/frame0002.png" id="23_apn0h"]
+[ext_resource type="Texture2D" uid="uid://coytmmwwgurfg" path="res://resources/assets/mc_witch/grab/frame0003.png" id="24_c8mvk"]
+[ext_resource type="Texture2D" uid="uid://i2hgih1q46bu" path="res://resources/assets/mc_witch/grab/frame0004.png" id="25_durai"]
+[ext_resource type="Texture2D" uid="uid://bvg6trdyh4xem" path="res://resources/assets/mc_witch/grab/frame0005.png" id="26_gflp7"]
+[ext_resource type="Texture2D" uid="uid://31usyowk1j80" path="res://resources/assets/mc_witch/idle/frame0000.png" id="27_e1qk3"]
+[ext_resource type="Texture2D" uid="uid://rdf1kin1vw3h" path="res://resources/assets/mc_witch/idle/frame0001.png" id="28_6vqk8"]
+[ext_resource type="Texture2D" uid="uid://deopjes0e0imi" path="res://resources/assets/mc_witch/idle/frame0002.png" id="29_hwshc"]
+[ext_resource type="Texture2D" uid="uid://iyn3bqtldq0w" path="res://resources/assets/mc_witch/idle/frame0003.png" id="30_akino"]
+[ext_resource type="Texture2D" uid="uid://db0j4xm6el6ka" path="res://resources/assets/mc_witch/idle/frame0004.png" id="31_6djuf"]
+[ext_resource type="Texture2D" uid="uid://bbrs8y7jh72h1" path="res://resources/assets/mc_witch/jump/frame0000.png" id="32_jbqq6"]
+[ext_resource type="Texture2D" uid="uid://khwg00k1pnn6" path="res://resources/assets/mc_witch/jump/frame0001.png" id="33_4sd8g"]
+[ext_resource type="Texture2D" uid="uid://cyuplri4n6dvq" path="res://resources/assets/mc_witch/jump/frame0002.png" id="34_15v2f"]
+[ext_resource type="Texture2D" uid="uid://bl33r60788tpg" path="res://resources/assets/mc_witch/jump/frame0003.png" id="35_y51aj"]
+[ext_resource type="Texture2D" uid="uid://dupiak5mvxbwk" path="res://resources/assets/mc_witch/jump/frame0004.png" id="36_sjytb"]
+[ext_resource type="Texture2D" uid="uid://ccs04vdrdv7rg" path="res://resources/assets/mc_witch/walk/frame0000.png" id="37_eiaw1"]
+[ext_resource type="Texture2D" uid="uid://xejtt1h0vyus" path="res://resources/assets/mc_witch/walk/frame0001.png" id="38_jd8ro"]
+[ext_resource type="Texture2D" uid="uid://bloee71fqwqaj" path="res://resources/assets/mc_witch/walk/frame0002.png" id="39_vxfyo"]
+[ext_resource type="Texture2D" uid="uid://71spc8gw7fur" path="res://resources/assets/mc_witch/walk/frame0003.png" id="40_0ckyh"]
+[ext_resource type="Texture2D" uid="uid://df4sk8w7frmur" path="res://resources/assets/mc_witch/walk/frame0004.png" id="41_7omy7"]
+[ext_resource type="Texture2D" uid="uid://beck2wttixr3w" path="res://resources/assets/mc_witch/walk/frame0005.png" id="42_kc6q3"]
+[ext_resource type="Texture2D" uid="uid://bg1l1tfffvfae" path="res://resources/assets/mc_witch/walk/frame0006.png" id="43_atosh"]
+[ext_resource type="Texture2D" uid="uid://cxr7hn30hep2j" path="res://resources/assets/mc_witch/walk/frame0007.png" id="44_4cbov"]
+[ext_resource type="AudioStream" uid="uid://byg17lqc35x0q" path="res://resources/audio/514254__jtn191__footstep4.wav" id="45_yitrd"]
+[ext_resource type="Texture2D" uid="uid://dutchgu08cdgw" path="res://just_test_sprites/0hp.png" id="46_8m217"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1a1pr"]
 shader = ExtResource("2_1w51g")
@@ -258,7 +258,6 @@ height = 50.2414
 particle_flag_disable_z = true
 emission_shape = 1
 emission_sphere_radius = 10.0
-initial_velocity_max = 10.0
 radial_velocity_max = 10.0
 gravity = Vector3(0, 100, 0)
 scale_max = 3.0
@@ -267,9 +266,9 @@ scale_max = 3.0
 particle_flag_disable_z = true
 emission_shape = 1
 emission_sphere_radius = 12.0
-gravity = Vector3(-200, -40, 0)
+gravity = Vector3(0, -40, 0)
 linear_accel_min = -100.0
-tangential_accel_min = -100.0
+linear_accel_max = -2.23517e-06
 damping_max = 50.0
 scale_max = 6.0
 hue_variation_min = -0.1
@@ -305,7 +304,7 @@ explosiveness = 1.0
 [node name="DashParticles" type="GPUParticles2D" parent="."]
 position = Vector2(0, 21.9806)
 emitting = false
-amount = 30
+amount = 20
 process_material = SubResource("ParticleProcessMaterial_tnkbn")
 lifetime = 1.5
 one_shot = true

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://f7ulrbjivid5"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_ng5c7"]
-[ext_resource type="FontFile" uid="uid://1qt0bkhnm3c1" path="res://resources/VictoriaCAT.ttf" id="1_uwe2x"]
+[ext_resource type="FontFile" uid="uid://plddhm25a7cl" path="res://resources/VictoriaCAT.ttf" id="1_uwe2x"]
 
 [sub_resource type="Animation" id="Animation_wf25c"]
 length = 0.001
@@ -249,10 +249,9 @@ theme_override_fonts/font = ExtResource("1_uwe2x")
 theme_override_font_sizes/font_size = 60
 flat = true
 alignment = 2
-item_count = 3
 selected = 0
+item_count = 3
 popup/item_0/text = "Windowed"
-popup/item_0/id = 0
 popup/item_1/text = "Fullscreen"
 popup/item_1/id = 1
 popup/item_2/text = "Exclusive Fullscreen"
@@ -285,10 +284,9 @@ theme_override_fonts/font = ExtResource("1_uwe2x")
 theme_override_font_sizes/font_size = 60
 flat = true
 alignment = 2
-item_count = 3
 selected = 0
+item_count = 3
 popup/item_0/text = "HD 1280x720"
-popup/item_0/id = 0
 popup/item_1/text = "HD+ 1600x900"
 popup/item_1/id = 1
 popup/item_2/text = "FHD 1920x1080"

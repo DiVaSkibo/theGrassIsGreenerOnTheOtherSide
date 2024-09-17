@@ -82,4 +82,3 @@ func _on_musivol_value_changed(value):
 func _on_sfxvol_value_changed(value):
 	AudioServer.set_bus_volume_db(2, linear_to_db(value))
 	Config.save_value("AUDIO", AudioServer.get_bus_name(2), AudioServer.get_bus_volume_db(2))
-

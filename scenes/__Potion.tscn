@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://cdfkt5uejiee8"]
 
 [ext_resource type="Script" path="res://scripts/__potion.gd" id="1_wku5u"]
-[ext_resource type="Texture2D" uid="uid://bn8uw221k4mly" path="res://just_test_sprites/2276ff44583003720f1457fc25d86eaa.png" id="2_5nej4"]
-[ext_resource type="Texture2D" uid="uid://h0c744rn1hpp" path="res://resources/assets/potion/pink.png" id="3_pt5t5"]
-[ext_resource type="AudioStream" uid="uid://dv7v3a5hkaeky" path="res://resources/audio/977__rhumphries__rbh-glass_break-01.wav" id="4_3t4lq"]
+[ext_resource type="Texture2D" uid="uid://lqm1pjc5xsu4" path="res://resources/assets/potion/poi_pink.png" id="2_n06mn"]
+[ext_resource type="Texture2D" uid="uid://cvuryefag38ht" path="res://resources/assets/potion/poi_green.png" id="3_lgay8"]
+[ext_resource type="AudioStream" uid="uid://b4d7qapf5rsmo" path="res://resources/audio/977__rhumphries__rbh-glass_break-01.wav" id="4_3t4lq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_aicsh"]
 
@@ -11,7 +11,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_5nej4")
+"texture": ExtResource("2_n06mn")
 }],
 "loop": false,
 "name": &"boost",
@@ -19,7 +19,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_pt5t5")
+"texture": ExtResource("3_lgay8")
 }],
 "loop": false,
 "name": &"poison",
@@ -39,12 +39,11 @@ physics_material_override = SubResource("PhysicsMaterial_aicsh")
 script = ExtResource("1_wku5u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 5)
-scale = Vector2(0.086375, 0.086375)
+position = Vector2(0, 1)
+scale = Vector2(0.301471, 0.301471)
 sprite_frames = SubResource("SpriteFrames_1biy0")
 animation = &"poison"
 autoplay = "poison"
-offset = Vector2(-1.19209e-05, -99.3351)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)

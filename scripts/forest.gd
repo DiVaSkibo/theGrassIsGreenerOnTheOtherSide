@@ -21,4 +21,3 @@ func _on_door_body_entered(body):
 func _on_door_body_exited(body):
 	if body.name == "Witch":
 		is_door = false
-

@@ -159,4 +159,3 @@ func _on_heal(value):
 		tween.tween_method(blink_intensity, 4.0, 0.0, 0.5)
 		$GPUParticles2D.restart()
 		$GPUParticles2D.emitting = true
-

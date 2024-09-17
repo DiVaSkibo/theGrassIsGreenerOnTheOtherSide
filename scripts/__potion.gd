@@ -35,4 +35,3 @@ func _on_area_2d_body_entered(body):
 		get_tree().current_scene.call_deferred("add_child", effect)
 		await $AudioStreamPlayer2D.finished
 		queue_free()
-

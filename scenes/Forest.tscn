@@ -1,29 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://cbexrromm684b"]
+[gd_scene load_steps=7 format=3 uid="uid://cbexrromm684b"]
 
 [ext_resource type="PackedScene" uid="uid://chycdhq2bglxf" path="res://scenes/_Witch.tscn" id="1_ep0he"]
-[ext_resource type="Texture2D" uid="uid://b4aqkmtnbyd10" path="res://resources/assets/bg/forest/foliage/tree_01.png" id="1_m503r"]
 [ext_resource type="Script" path="res://scripts/forest.gd" id="1_magip"]
-[ext_resource type="Texture2D" uid="uid://b641b7wefu64b" path="res://resources/assets/bg/house/house_itself.png" id="2_wsbya"]
-[ext_resource type="Texture2D" uid="uid://cae64arotfhvr" path="res://resources/assets/bg/forest/foliage/tree_01_nolians.png" id="4_hohvt"]
-[ext_resource type="Texture2D" uid="uid://d3ksy208pnxky" path="res://resources/assets/bg/forest/foliage/tree_01_moleafs.png" id="5_ro75u"]
-[ext_resource type="Texture2D" uid="uid://b5mp4a8sg3uer" path="res://resources/assets/bg/forest/foliage/broken_tree_01.png" id="6_d1njg"]
-[ext_resource type="Texture2D" uid="uid://dcbpax28tj4tn" path="res://resources/assets/bg/forest/foliage/broken_tree_01_noleaves.png" id="7_q123h"]
-[ext_resource type="Texture2D" uid="uid://cwk8rmwc1ablq" path="res://resources/assets/bg/forest/foliage/tree_02.png" id="8_64gyu"]
-[ext_resource type="Texture2D" uid="uid://un7qeq2p0x8r" path="res://resources/assets/bg/forest/foliage/tree_02_moleaves.png" id="9_1yniu"]
-[ext_resource type="Texture2D" uid="uid://0vxyq4nr0bf8" path="res://resources/assets/bg/forest/foliage/bush_01.png" id="10_sm5re"]
-[ext_resource type="Texture2D" uid="uid://dccsgvfaktfd" path="res://resources/assets/bg/forest/foliage/bush_02.png" id="11_i7phf"]
-[ext_resource type="Texture2D" uid="uid://1v1pupaiqusl" path="res://resources/assets/bg/forest/foliage/bush_03.png" id="12_grgo8"]
-[ext_resource type="Texture2D" uid="uid://bpxy7nw2klxdk" path="res://resources/assets/bg/forest/foliage/bush_04.png" id="13_0q3fl"]
-[ext_resource type="Texture2D" uid="uid://3uf4o0u7sopv" path="res://resources/assets/bg/forest/foliage/bush_05.png" id="14_fqqfn"]
-[ext_resource type="Texture2D" uid="uid://cj48xbo4qj81d" path="res://resources/assets/bg/forest/foliage/bush_06.png" id="15_00wbk"]
-[ext_resource type="Texture2D" uid="uid://b4j2dwh21q8d8" path="res://resources/assets/bg/forest/foliage/bush_07.png" id="16_n8dc4"]
-[ext_resource type="Texture2D" uid="uid://ciuhv5fq0g6sc" path="res://resources/assets/bg/forest/foliage/root_01.png" id="17_dsufo"]
-[ext_resource type="Texture2D" uid="uid://7p3hee2rqvdd" path="res://resources/assets/bg/forest/foliage/root_02.png" id="18_r8uh1"]
-[ext_resource type="Texture2D" uid="uid://tg6s182fsb5n" path="res://resources/assets/bg/forest/rocks/rock_01.png" id="19_hcvri"]
-[ext_resource type="Texture2D" uid="uid://byye1dsbafj5r" path="res://resources/assets/bg/forest/rocks/rock_02.png" id="20_fq37h"]
-[ext_resource type="Texture2D" uid="uid://tv3dhpennbls" path="res://resources/assets/bg/forest/rocks/rock_04.png" id="21_khug3"]
-[ext_resource type="Texture2D" uid="uid://bn450eemvv123" path="res://resources/assets/bg/forest/rocks/rock_pillar_01_symbols.png" id="22_hmr37"]
-[ext_resource type="Texture2D" uid="uid://tock026i48g1" path="res://resources/assets/bg/forest/rocks/rock_pillar_02_symbols.png" id="23_686br"]
+[ext_resource type="Texture2D" uid="uid://d2dr5swcpnq47" path="res://resources/assets/bg/house/house_itself.png" id="2_wsbya"]
+[ext_resource type="Texture2D" uid="uid://dtuxuffo7d4lo" path="res://just_test_sprites/d515mo1-542e7751-ee0a-461a-a383-bd1a90824873.png" id="3_rnlcl"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_agukx"]
 normal = Vector2(0, -1000)
@@ -49,109 +29,68 @@ scale = Vector2(0.353537, 0.353537)
 texture = ExtResource("2_wsbya")
 
 [node name="tree" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(1124, 159)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_m503r")
-
-[node name="tree_nolian" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(2508, 162)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_hohvt")
-
-[node name="tree_molea" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(3818, 156)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("5_ro75u")
-
-[node name="brokentree" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(4763, 567)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("6_d1njg")
-
-[node name="brokentree_nolian" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(5501, 571)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("7_q123h")
+position = Vector2(1043, 373)
+texture = ExtResource("3_rnlcl")
 
 [node name="tree2" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(6136, 12)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("8_64gyu")
+position = Vector2(1875, 369)
+texture = ExtResource("3_rnlcl")
 
-[node name="tree2_molevaes" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(6912, 4)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("9_1yniu")
+[node name="tree3" type="Sprite2D" parent="Back/ParallaxLayer3"]
+position = Vector2(2867, 373)
+texture = ExtResource("3_rnlcl")
 
-[node name="bush1" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(7476, 656)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("10_sm5re")
+[node name="tree4" type="Sprite2D" parent="Back/ParallaxLayer3"]
+position = Vector2(3599, 405)
+texture = ExtResource("3_rnlcl")
 
-[node name="bush2" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(7911, 645)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("11_i7phf")
+[node name="tree5" type="Sprite2D" parent="Back/ParallaxLayer3"]
+position = Vector2(4371, 325)
+texture = ExtResource("3_rnlcl")
 
-[node name="bush3" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(8368, 650)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("12_grgo8")
+[node name="tree6" type="Sprite2D" parent="Back/ParallaxLayer3"]
+position = Vector2(5227, 341)
+texture = ExtResource("3_rnlcl")
 
-[node name="bush4" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(8797, 629)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("13_0q3fl")
+[node name="tree7" type="Sprite2D" parent="Back/ParallaxLayer3"]
+position = Vector2(1515, -83)
+texture = ExtResource("3_rnlcl")
 
-[node name="bush5" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(9220, 600)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("14_fqqfn")
+[node name="tree8" type="Sprite2D" parent="Back/ParallaxLayer3"]
+position = Vector2(2443, 13)
+texture = ExtResource("3_rnlcl")
 
-[node name="bush6" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(9543, 594)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("15_00wbk")
+[node name="tree9" type="Sprite2D" parent="Back/ParallaxLayer3"]
+position = Vector2(3283, -59)
+texture = ExtResource("3_rnlcl")
 
-[node name="bush7" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(9969, 648)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("16_n8dc4")
+[node name="tree10" type="Sprite2D" parent="Back/ParallaxLayer3"]
+position = Vector2(3939, -11)
+texture = ExtResource("3_rnlcl")
 
-[node name="root1" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(10503, 676)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("17_dsufo")
+[node name="tree11" type="Sprite2D" parent="Back/ParallaxLayer3"]
+position = Vector2(4747, -3)
+texture = ExtResource("3_rnlcl")
 
-[node name="root2" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(11156, 633)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("18_r8uh1")
+[node name="tree12" type="Sprite2D" parent="Back/ParallaxLayer3"]
+position = Vector2(4899, 829)
+texture = ExtResource("3_rnlcl")
 
-[node name="rock1" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(11748, 630)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("19_hcvri")
+[node name="tree13" type="Sprite2D" parent="Back/ParallaxLayer3"]
+position = Vector2(2451, 733)
+texture = ExtResource("3_rnlcl")
 
-[node name="rock2" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(12121, 668)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("20_fq37h")
+[node name="tree14" type="Sprite2D" parent="Back/ParallaxLayer3"]
+position = Vector2(1419, 853)
+texture = ExtResource("3_rnlcl")
 
-[node name="rock3" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(12481, 662)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("21_khug3")
+[node name="tree15" type="Sprite2D" parent="Back/ParallaxLayer3"]
+position = Vector2(3331, 917)
+texture = ExtResource("3_rnlcl")
 
-[node name="rock4" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(12881.4, 494.6)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("22_hmr37")
-
-[node name="rock5" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(13229.4, 512.6)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("23_686br")
+[node name="tree16" type="Sprite2D" parent="Back/ParallaxLayer3"]
+position = Vector2(4115, 877)
+texture = ExtResource("3_rnlcl")
 
 [node name="floor" type="StaticBody2D" parent="."]
 position = Vector2(960, 767)
