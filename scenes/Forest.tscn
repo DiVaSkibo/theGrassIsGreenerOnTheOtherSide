@@ -1,96 +1,74 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbexrromm684b"]
+[gd_scene load_steps=10 format=3 uid="uid://cbexrromm684b"]
 
 [ext_resource type="PackedScene" uid="uid://chycdhq2bglxf" path="res://scenes/_Witch.tscn" id="1_ep0he"]
 [ext_resource type="Script" path="res://scripts/forest.gd" id="1_magip"]
+[ext_resource type="Texture2D" uid="uid://da0h8n8ge4bv7" path="res://just_test_sprites/maxresdefault.jpg" id="2_gam0g"]
+[ext_resource type="Texture2D" uid="uid://dtngxw4vop50n" path="res://just_test_sprites/yellow-sky-with-white-cloud-background-ar-52-v-52-job-id-117558d8ace04b8faaaffaa8f021aaf2_941600-114632.jpg" id="2_kho7d"]
 [ext_resource type="Texture2D" uid="uid://d2dr5swcpnq47" path="res://resources/assets/bg/house/house_itself.png" id="2_wsbya"]
 [ext_resource type="Texture2D" uid="uid://dtuxuffo7d4lo" path="res://just_test_sprites/d515mo1-542e7751-ee0a-461a-a383-bd1a90824873.png" id="3_rnlcl"]
+[ext_resource type="Texture2D" uid="uid://d1hlx0xr85ecr" path="res://just_test_sprites/peaceful-pathway-through-sundappled-forest-with-sunlight-filtering-through-trees_947865-6483.jpg" id="4_hto6r"]
+[ext_resource type="PackedScene" uid="uid://bvbicodrcn87o" path="res://scenes/__Pathway.tscn" id="6_miu47"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_agukx"]
 normal = Vector2(0, -1000)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3ij2k"]
-radius = 59.0
-height = 314.0
 
 [node name="Forest" type="Node2D"]
 script = ExtResource("1_magip")
 
 [node name="Back" type="ParallaxBackground" parent="."]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Back"]
+[node name="Deep" type="ParallaxLayer" parent="Back"]
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="Back"]
+[node name="sky" type="Sprite2D" parent="Back/Deep"]
+position = Vector2(8449.42, -117.125)
+scale = Vector2(34.4076, 6.99498)
+texture = ExtResource("2_kho7d")
 
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="Back"]
+[node name="Bottom" type="ParallaxLayer" parent="Back"]
 
-[node name="house" type="Sprite2D" parent="Back/ParallaxLayer3"]
+[node name="floor" type="Sprite2D" parent="Back/Bottom"]
+position = Vector2(8452.5, 932.5)
+scale = Vector2(16.832, 0.504167)
+texture = ExtResource("2_gam0g")
+
+[node name="pathway" type="Sprite2D" parent="Back/Bottom"]
+position = Vector2(6313.47, 313)
+scale = Vector2(2.28936, 2.28936)
+texture = ExtResource("4_hto6r")
+
+[node name="Middle" type="ParallaxLayer" parent="Back"]
+
+[node name="tree" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(2172, -127)
+scale = Vector2(2.65152, 2.65152)
+texture = ExtResource("3_rnlcl")
+
+[node name="tree2" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(4027, -117)
+scale = Vector2(2.65152, 2.65152)
+texture = ExtResource("3_rnlcl")
+
+[node name="tree3" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(5106, -129)
+scale = Vector2(2.65152, 2.65152)
+texture = ExtResource("3_rnlcl")
+
+[node name="tree4" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(7504, -129)
+scale = Vector2(2.65152, 2.65152)
+texture = ExtResource("3_rnlcl")
+
+[node name="tree5" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(8984, -114)
+scale = Vector2(2.65152, 2.65152)
+texture = ExtResource("3_rnlcl")
+
+[node name="Front" type="ParallaxLayer" parent="Back"]
+
+[node name="house" type="Sprite2D" parent="Back/Front"]
 position = Vector2(-818, 116)
 scale = Vector2(0.353537, 0.353537)
 texture = ExtResource("2_wsbya")
-
-[node name="tree" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(1043, 373)
-texture = ExtResource("3_rnlcl")
-
-[node name="tree2" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(1875, 369)
-texture = ExtResource("3_rnlcl")
-
-[node name="tree3" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(2867, 373)
-texture = ExtResource("3_rnlcl")
-
-[node name="tree4" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(3599, 405)
-texture = ExtResource("3_rnlcl")
-
-[node name="tree5" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(4371, 325)
-texture = ExtResource("3_rnlcl")
-
-[node name="tree6" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(5227, 341)
-texture = ExtResource("3_rnlcl")
-
-[node name="tree7" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(1515, -83)
-texture = ExtResource("3_rnlcl")
-
-[node name="tree8" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(2443, 13)
-texture = ExtResource("3_rnlcl")
-
-[node name="tree9" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(3283, -59)
-texture = ExtResource("3_rnlcl")
-
-[node name="tree10" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(3939, -11)
-texture = ExtResource("3_rnlcl")
-
-[node name="tree11" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(4747, -3)
-texture = ExtResource("3_rnlcl")
-
-[node name="tree12" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(4899, 829)
-texture = ExtResource("3_rnlcl")
-
-[node name="tree13" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(2451, 733)
-texture = ExtResource("3_rnlcl")
-
-[node name="tree14" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(1419, 853)
-texture = ExtResource("3_rnlcl")
-
-[node name="tree15" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(3331, 917)
-texture = ExtResource("3_rnlcl")
-
-[node name="tree16" type="Sprite2D" parent="Back/ParallaxLayer3"]
-position = Vector2(4115, 877)
-texture = ExtResource("3_rnlcl")
 
 [node name="floor" type="StaticBody2D" parent="."]
 position = Vector2(960, 767)
@@ -99,13 +77,13 @@ collision_layer = 7
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
 shape = SubResource("WorldBoundaryShape2D_agukx")
 
-[node name="door" type="Area2D" parent="."]
-position = Vector2(177, 664)
-collision_layer = 2
-collision_mask = 2
+[node name="door" parent="." instance=ExtResource("6_miu47")]
+position = Vector2(175, 644)
+scene = "House"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="door"]
-shape = SubResource("CapsuleShape2D_3ij2k")
+[node name="pathway" parent="." instance=ExtResource("6_miu47")]
+position = Vector2(6364, 641)
+scene = "Forest"
 
 [node name="Witch" parent="." instance=ExtResource("1_ep0he")]
 position = Vector2(189, 672)
@@ -115,5 +93,5 @@ position = Vector2(-0.285471, -36.8246)
 position_smoothing_enabled = true
 position_smoothing_speed = 6.0
 
-[connection signal="body_entered" from="door" to="." method="_on_door_body_entered"]
-[connection signal="body_exited" from="door" to="." method="_on_door_body_exited"]
+[connection signal="switch_scene" from="door" to="." method="_end"]
+[connection signal="switch_scene" from="pathway" to="." method="_end"]

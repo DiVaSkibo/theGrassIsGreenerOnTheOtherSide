@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvbicodrcn87o"]
+
+[ext_resource type="Script" path="res://scripts/__pathway.gd" id="1_qdfqv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_18umw"]
+radius = 42.0
+height = 274.0
+
+[node name="__pathway" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_qdfqv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_18umw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
