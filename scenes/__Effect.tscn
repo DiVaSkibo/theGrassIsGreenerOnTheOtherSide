@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://blyldt88x2e1i"]
+[gd_scene load_steps=8 format=3 uid="uid://blyldt88x2e1i"]
 
 [ext_resource type="Script" path="res://scripts/__effect.gd" id="1_562g8"]
-[ext_resource type="Texture2D" uid="uid://csuw20bc8qp8l" path="res://just_test_sprites/pngtree-flame-spark-spark-bomb-explosion-gunpowder-visual-effect-decorative-pattern-png-image_12298023.png" id="2_s0ms6"]
-[ext_resource type="AudioStream" uid="uid://bl548t5ward5" path="res://resources/audio/714257__qubodup__puff-of-smoke.wav" id="3_kvj2r"]
-[ext_resource type="Texture2D" uid="uid://u1722iul8igv" path="res://just_test_sprites/pngtree-green-decorative-water-color-png-image_7296956.png" id="3_mshtn"]
+[ext_resource type="Texture2D" uid="uid://dralea56rq1mn" path="res://just_test_sprites/pngtree-flame-spark-spark-bomb-explosion-gunpowder-visual-effect-decorative-pattern-png-image_12298023.png" id="2_s0ms6"]
+[ext_resource type="AudioStream" uid="uid://b4xhmdnq4srlh" path="res://resources/audio/714257__qubodup__puff-of-smoke.wav" id="3_kvj2r"]
+[ext_resource type="Texture2D" uid="uid://dushsilokjl12" path="res://just_test_sprites/pngtree-green-decorative-water-color-png-image_7296956.png" id="3_mshtn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wtwop"]
 animations = [{
@@ -25,21 +25,27 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7ulm0"]
-radius = 563.643
+radius = 521.35
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p577u"]
+radius = 200.103
 
 [node name="effect" type="Area2D"]
 scale = Vector2(0.354853, 0.354853)
-collision_layer = 6
+collision_layer = 0
 collision_mask = 6
 script = ExtResource("1_562g8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wtwop")
-animation = &"poison"
+animation = &"boost"
 autoplay = "poison"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="BoostCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7ulm0")
+
+[node name="PoisonCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_p577u")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_kvj2r")

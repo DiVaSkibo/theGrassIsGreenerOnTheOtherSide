@@ -348,19 +348,19 @@ layout_mode = 2
 texture = ExtResource("46_8m217")
 
 [node name="AttackCoolDown" type="Timer" parent="."]
-wait_time = 0.7
-one_shot = true
-
-[node name="DashCoolDown" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 1.15
 one_shot = true
 
 [node name="DashDuration" type="Timer" parent="."]
 wait_time = 0.4
 one_shot = true
 
+[node name="DashCoolDown" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
 [connection signal="heal" from="." to="." method="_on_heal"]
 [connection signal="hit" from="." to="." method="_on_hit"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="timeout" from="DashCoolDown" to="." method="_on_dash_cool_down_timeout"]
 [connection signal="timeout" from="DashDuration" to="." method="_on_dash_duration_timeout"]
+[connection signal="timeout" from="DashCoolDown" to="." method="_on_dash_cool_down_timeout"]

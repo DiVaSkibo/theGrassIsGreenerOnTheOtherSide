@@ -16,6 +16,8 @@ const STEP_GRASS = preload("res://resources/audio/514254__jtn191__footstep4.wav"
 var gravity = 3 * ProjectSettings.get_setting("physics/2d/default_gravity")
 var prev_velocity := Vector2.ZERO
 
+var has_dash_access := true
+
 
 #		FUNC
 func _ready():
@@ -50,6 +52,8 @@ func _physics_process(delta):
 			velocity.y += gravity * delta
 			# air resistence in up/down
 			velocity.y = lerp(prev_velocity.y, velocity.y, 0.8)
+		elif $DashCoolDown.is_stopped() and not has_dash_access:
+			has_dash_access = true
 
 		# Attack
 		if Input.is_action_pressed("boost") and Input.is_action_pressed("attack") and $AttackCoolDown.is_stopped():
@@ -84,18 +88,19 @@ func _physics_process(delta):
 			get_parent().add_child(potion)
 
 		# Jump
-		if Input.is_action_just_pressed("jump") and is_on_floor():
+		if Input.is_action_pressed("jump") and is_on_floor():
 			velocity.y = jump_height
 		elif Input.is_action_just_released("jump") and velocity.y < 0:
 			velocity.y *= 0.2
 
 		# Animation
-		if Input.is_action_just_pressed("dash") and $DashCoolDown.is_stopped() and not $AnimatedSprite2D.animation.begins_with("attack"):
+		if Input.is_action_pressed("dash") and has_dash_access and not $AnimatedSprite2D.animation.begins_with("attack"):
 			velocity.x = dash_speed * direction
 			velocity.y = 0
 			$DashDuration.start()
 			$DashParticles.emitting = true
 			$AnimatedSprite2D.play("dash")
+			has_dash_access = false
 		elif Input.is_action_just_pressed("jump"):
 			$AnimatedSprite2D.play("jump")
 		elif is_on_floor() and $AnimatedSprite2D.animation == "fly":
@@ -113,7 +118,7 @@ func _physics_process(delta):
 	prev_velocity = velocity
 	move_and_slide()
 
-func blink_intensity(value : float):
+func blink_intensity(value : float) -> void:
 	$AnimatedSprite2D.material.set_shader_parameter("blink_intensity", value)
 
 
@@ -127,12 +132,12 @@ func _on_animated_sprite_2d_animation_finished():
 		"jump_out":
 			$AnimatedSprite2D.play("idle")
 
-func _on_dash_duration_timeout():
+func _on_dash_duration_timeout() -> void:
 	velocity.x = 0
-	$DashCoolDown.start()
-func _on_dash_cool_down_timeout():
-	if not is_on_floor():
+	if is_on_floor():
 		$DashCoolDown.start()
+func _on_dash_cool_down_timeout() -> void:
+	has_dash_access = true
 
 func _on_hit(value):
 	for i in value:
