@@ -8,4 +8,3 @@ func _on_heal_cool_down_timeout():
 	for body in get_overlapping_bodies():
 		if body is CharacterBody2D:
 			body.heal.emit(2)
-

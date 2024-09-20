@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cbexrromm684b"]
+[gd_scene load_steps=11 format=3 uid="uid://cbexrromm684b"]
 
 [ext_resource type="PackedScene" uid="uid://chycdhq2bglxf" path="res://scenes/_Witch.tscn" id="1_ep0he"]
 [ext_resource type="Script" path="res://scripts/forest.gd" id="1_magip"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dtuxuffo7d4lo" path="res://just_test_sprites/d515mo1-542e7751-ee0a-461a-a383-bd1a90824873.png" id="3_rnlcl"]
 [ext_resource type="Texture2D" uid="uid://d1hlx0xr85ecr" path="res://just_test_sprites/peaceful-pathway-through-sundappled-forest-with-sunlight-filtering-through-trees_947865-6483.jpg" id="4_hto6r"]
 [ext_resource type="PackedScene" uid="uid://bvbicodrcn87o" path="res://scenes/__Pathway.tscn" id="6_miu47"]
+[ext_resource type="PackedScene" uid="uid://himy2c8yo5sa" path="res://scenes/_HealArea.tscn" id="8_mguhx"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_agukx"]
 normal = Vector2(0, -1000)
@@ -84,6 +85,9 @@ scene = "House"
 [node name="pathway" parent="." instance=ExtResource("6_miu47")]
 position = Vector2(6364, 641)
 scene = "Forest"
+
+[node name="HealArea" parent="." instance=ExtResource("8_mguhx")]
+position = Vector2(3059, 743)
 
 [node name="Witch" parent="." instance=ExtResource("1_ep0he")]
 position = Vector2(189, 672)

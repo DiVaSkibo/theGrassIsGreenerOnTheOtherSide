@@ -356,7 +356,7 @@ wait_time = 0.4
 one_shot = true
 
 [node name="DashCoolDown" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.6
 one_shot = true
 
 [connection signal="heal" from="." to="." method="_on_heal"]
