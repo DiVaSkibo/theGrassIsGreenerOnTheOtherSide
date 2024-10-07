@@ -24,4 +24,3 @@ func say(words : String, coordinate : Vector2):
 	$PauseDuration.start()
 	await  $PauseDuration.timeout
 	words_finished.emit()
-

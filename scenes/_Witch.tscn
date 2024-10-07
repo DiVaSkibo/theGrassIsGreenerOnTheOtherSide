@@ -316,10 +316,10 @@ bus = &"SFX"
 
 [node name="Health" type="GridContainer" parent="."]
 z_index = 100
-offset_left = 148.155
-offset_top = 88.2078
-offset_right = 4968.15
-offset_bottom = 688.208
+offset_left = -240.0
+offset_top = 60.0
+offset_right = 4580.0
+offset_bottom = 660.0
 scale = Vector2(0.0170209, 0.0170209)
 columns = 6
 

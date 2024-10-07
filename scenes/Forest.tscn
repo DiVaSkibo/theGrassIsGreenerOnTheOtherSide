@@ -1,14 +1,43 @@
-[gd_scene load_steps=11 format=3 uid="uid://cbexrromm684b"]
+[gd_scene load_steps=16 format=3 uid="uid://cbexrromm684b"]
 
 [ext_resource type="PackedScene" uid="uid://chycdhq2bglxf" path="res://scenes/_Witch.tscn" id="1_ep0he"]
 [ext_resource type="Script" path="res://scripts/forest.gd" id="1_magip"]
-[ext_resource type="Texture2D" uid="uid://da0h8n8ge4bv7" path="res://just_test_sprites/maxresdefault.jpg" id="2_gam0g"]
-[ext_resource type="Texture2D" uid="uid://dtngxw4vop50n" path="res://just_test_sprites/yellow-sky-with-white-cloud-background-ar-52-v-52-job-id-117558d8ace04b8faaaffaa8f021aaf2_941600-114632.jpg" id="2_kho7d"]
-[ext_resource type="Texture2D" uid="uid://d2dr5swcpnq47" path="res://resources/assets/bg/house/house_itself.png" id="2_wsbya"]
-[ext_resource type="Texture2D" uid="uid://dtuxuffo7d4lo" path="res://just_test_sprites/d515mo1-542e7751-ee0a-461a-a383-bd1a90824873.png" id="3_rnlcl"]
+[ext_resource type="Texture2D" uid="uid://yc5to3wdvphd" path="res://resources/assets/bg/forest/foliage/roof_lian_03.png" id="3_d1i7y"]
 [ext_resource type="Texture2D" uid="uid://d1hlx0xr85ecr" path="res://just_test_sprites/peaceful-pathway-through-sundappled-forest-with-sunlight-filtering-through-trees_947865-6483.jpg" id="4_hto6r"]
+[ext_resource type="Texture2D" uid="uid://ihtgbu7hlusi" path="res://resources/assets/bg/forest/foliage/l tree_01 l.png" id="5_v0ou3"]
+[ext_resource type="Texture2D" uid="uid://c4iy6bv4wal8l" path="res://resources/assets/bg/house/house_itself_l.png" id="6_c4cag"]
 [ext_resource type="PackedScene" uid="uid://bvbicodrcn87o" path="res://scenes/__Pathway.tscn" id="6_miu47"]
+[ext_resource type="Texture2D" uid="uid://wonw2b6t3dwf" path="res://resources/assets/bg/forest/foliage/l tree_01_nolians l.png" id="6_u4tel"]
+[ext_resource type="Texture2D" uid="uid://c522vs488t08t" path="res://resources/assets/bg/forest/foliage/l tree_01_moleafs l.png" id="7_c0055"]
+[ext_resource type="Texture2D" uid="uid://d4kdfvufo4l2d" path="res://resources/assets/bg/forest/foliage/l tree_02 l.png" id="8_lhptc"]
 [ext_resource type="PackedScene" uid="uid://himy2c8yo5sa" path="res://scenes/_HealArea.tscn" id="8_mguhx"]
+[ext_resource type="Texture2D" uid="uid://d0bq0bbxavia5" path="res://resources/assets/bg/forest/foliage/l tree_02_moleaves l.png" id="9_yofmj"]
+[ext_resource type="Texture2D" uid="uid://cmkeu0wa0g10m" path="res://resources/assets/bg/forest/foliage/l broken_tree_01_noleaves l.png" id="10_1haeu"]
+
+[sub_resource type="Environment" id="Environment_1o30x"]
+background_mode = 3
+tonemap_mode = 3
+tonemap_white = 0.6
+glow_enabled = true
+glow_levels/1 = 16.0
+glow_levels/2 = 8.0
+glow_levels/3 = 2.0
+glow_normalized = true
+glow_intensity = 4.0
+glow_strength = 1.8
+glow_blend_mode = 0
+fog_mode = 1
+fog_light_color = Color(1, 1, 1, 1)
+fog_light_energy = 13.54
+fog_sun_scatter = 3.7
+fog_density = 1.0
+fog_sky_affect = 0.162
+fog_height = 4.25
+fog_height_density = -16.0
+fog_depth_curve = 1.56917e-05
+fog_depth_begin = 4000.0
+fog_depth_end = 4000.0
+adjustment_enabled = true
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_agukx"]
 normal = Vector2(0, -1000)
@@ -16,21 +45,26 @@ normal = Vector2(0, -1000)
 [node name="Forest" type="Node2D"]
 script = ExtResource("1_magip")
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1o30x")
+
 [node name="Back" type="ParallaxBackground" parent="."]
 
 [node name="Deep" type="ParallaxLayer" parent="Back"]
 
-[node name="sky" type="Sprite2D" parent="Back/Deep"]
-position = Vector2(8449.42, -117.125)
-scale = Vector2(34.4076, 6.99498)
-texture = ExtResource("2_kho7d")
+[node name="ColorRect" type="ColorRect" parent="Back/Deep"]
+offset_left = -2421.0
+offset_top = -1007.0
+offset_right = 27699.0
+offset_bottom = 775.0
+color = Color(0.475003, 0.77665, 0.750869, 1)
 
 [node name="Bottom" type="ParallaxLayer" parent="Back"]
 
 [node name="floor" type="Sprite2D" parent="Back/Bottom"]
-position = Vector2(8452.5, 932.5)
-scale = Vector2(16.832, 0.504167)
-texture = ExtResource("2_gam0g")
+position = Vector2(10589.6, 1407.56)
+scale = Vector2(26.7842, 1.09066)
+texture = ExtResource("3_d1i7y")
 
 [node name="pathway" type="Sprite2D" parent="Back/Bottom"]
 position = Vector2(6313.47, 313)
@@ -39,37 +73,191 @@ texture = ExtResource("4_hto6r")
 
 [node name="Middle" type="ParallaxLayer" parent="Back"]
 
-[node name="tree" type="Sprite2D" parent="Back/Middle"]
-position = Vector2(2172, -127)
-scale = Vector2(2.65152, 2.65152)
-texture = ExtResource("3_rnlcl")
+[node name="tree_01_" type="Sprite2D" parent="Back/Middle"]
+visible = false
+texture = ExtResource("5_v0ou3")
 
-[node name="tree2" type="Sprite2D" parent="Back/Middle"]
-position = Vector2(4027, -117)
-scale = Vector2(2.65152, 2.65152)
-texture = ExtResource("3_rnlcl")
+[node name="tree_01_nolians_" type="Sprite2D" parent="Back/Middle"]
+visible = false
+texture = ExtResource("6_u4tel")
 
-[node name="tree3" type="Sprite2D" parent="Back/Middle"]
-position = Vector2(5106, -129)
-scale = Vector2(2.65152, 2.65152)
-texture = ExtResource("3_rnlcl")
+[node name="tree_01_moleaves_" type="Sprite2D" parent="Back/Middle"]
+visible = false
+texture = ExtResource("7_c0055")
 
-[node name="tree4" type="Sprite2D" parent="Back/Middle"]
-position = Vector2(7504, -129)
-scale = Vector2(2.65152, 2.65152)
-texture = ExtResource("3_rnlcl")
+[node name="tree_02_" type="Sprite2D" parent="Back/Middle"]
+visible = false
+texture = ExtResource("8_lhptc")
 
-[node name="tree5" type="Sprite2D" parent="Back/Middle"]
-position = Vector2(8984, -114)
-scale = Vector2(2.65152, 2.65152)
-texture = ExtResource("3_rnlcl")
+[node name="tree_02_moleaves_" type="Sprite2D" parent="Back/Middle"]
+visible = false
+texture = ExtResource("9_yofmj")
+
+[node name="broken_tree_01_noleanes_" type="Sprite2D" parent="Back/Middle"]
+visible = false
+texture = ExtResource("10_1haeu")
+
+[node name="tree_01_2" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(10750, 175)
+texture = ExtResource("5_v0ou3")
+flip_h = true
+
+[node name="tree_01_3" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(11933, 204)
+texture = ExtResource("5_v0ou3")
+flip_h = true
+
+[node name="tree_01_4" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(16549, 172)
+texture = ExtResource("5_v0ou3")
+
+[node name="tree_01_5" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(17253, 140)
+texture = ExtResource("5_v0ou3")
+flip_h = true
+
+[node name="tree_01_6" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(18413, 212)
+texture = ExtResource("5_v0ou3")
+
+[node name="tree_01_7" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(18887, 178)
+texture = ExtResource("5_v0ou3")
+
+[node name="tree_01_8" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(20823, 162)
+texture = ExtResource("5_v0ou3")
+flip_h = true
+
+[node name="tree_01_9" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(21615, 162)
+texture = ExtResource("5_v0ou3")
+
+[node name="tree_01_10" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(22847, 186)
+texture = ExtResource("5_v0ou3")
+
+[node name="tree_01_11" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(22302, 182)
+texture = ExtResource("5_v0ou3")
+flip_h = true
+
+[node name="tree_01_nolians_2" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(2068, 216)
+texture = ExtResource("6_u4tel")
+
+[node name="tree_01_nolians_12" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(520, 173)
+texture = ExtResource("6_u4tel")
+
+[node name="tree_01_nolians_3" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(2697, 180)
+texture = ExtResource("6_u4tel")
+flip_h = true
+
+[node name="tree_01_nolians_4" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(4089, 211)
+texture = ExtResource("6_u4tel")
+
+[node name="tree_01_nolians_5" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(5189, 287)
+texture = ExtResource("6_u4tel")
+flip_h = true
+
+[node name="tree_01_nolians_6" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(7175, 212)
+texture = ExtResource("6_u4tel")
+flip_h = true
+
+[node name="tree_01_nolians_7" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(7784, 271)
+texture = ExtResource("6_u4tel")
+
+[node name="tree_01_nolians_8" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(8932, 244)
+texture = ExtResource("6_u4tel")
+flip_h = true
+
+[node name="tree_01_nolians_9" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(9455, 265)
+texture = ExtResource("6_u4tel")
+
+[node name="tree_01_nolians_10" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(9984, 201)
+texture = ExtResource("6_u4tel")
+flip_h = true
+
+[node name="tree_01_nolians_11" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(11449, 230)
+texture = ExtResource("6_u4tel")
+
+[node name="tree_01_moleaves_2" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(4712, 206)
+texture = ExtResource("7_c0055")
+flip_h = true
+
+[node name="tree_01_moleaves_3" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(3622, 254)
+texture = ExtResource("7_c0055")
+
+[node name="tree_01_moleaves_4" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(8270, 238)
+texture = ExtResource("7_c0055")
+
+[node name="tree_01_moleaves_5" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(10401, 288)
+texture = ExtResource("7_c0055")
+
+[node name="tree_02_2" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(12692, 87)
+texture = ExtResource("8_lhptc")
+
+[node name="tree_02_3" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(14185, 67)
+texture = ExtResource("8_lhptc")
+flip_h = true
+
+[node name="tree_02_4" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(15684, 73)
+texture = ExtResource("8_lhptc")
+
+[node name="tree_02_moleaves_2" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(13617, 196)
+texture = ExtResource("9_yofmj")
+flip_h = true
+
+[node name="tree_02_moleaves_3" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(14744, 196)
+texture = ExtResource("9_yofmj")
+
+[node name="broken_tree_01_noleanes_2" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(6660, 576)
+texture = ExtResource("10_1haeu")
+
+[node name="broken_tree_01_noleanes_3" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(12274, 585)
+texture = ExtResource("10_1haeu")
+flip_h = true
+
+[node name="broken_tree_01_noleanes_4" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(17714, 553)
+texture = ExtResource("10_1haeu")
+flip_h = true
+
+[node name="broken_tree_01_noleanes_5" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(21962, 560)
+texture = ExtResource("10_1haeu")
+
+[node name="broken_tree_01_noleanes_6" type="Sprite2D" parent="Back/Middle"]
+position = Vector2(26517, 557)
+texture = ExtResource("10_1haeu")
+flip_h = true
 
 [node name="Front" type="ParallaxLayer" parent="Back"]
 
 [node name="house" type="Sprite2D" parent="Back/Front"]
-position = Vector2(-818, 116)
-scale = Vector2(0.353537, 0.353537)
-texture = ExtResource("2_wsbya")
+position = Vector2(-784, 165)
+texture = ExtResource("6_c4cag")
 
 [node name="floor" type="StaticBody2D" parent="."]
 position = Vector2(960, 767)
@@ -93,7 +281,7 @@ position = Vector2(3059, 743)
 position = Vector2(189, 672)
 
 [node name="Camera2D4" type="Camera2D" parent="Witch"]
-position = Vector2(-0.285471, -36.8246)
+position = Vector2(0, -60)
 position_smoothing_enabled = true
 position_smoothing_speed = 6.0
 
