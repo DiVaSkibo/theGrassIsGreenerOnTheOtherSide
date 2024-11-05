@@ -25,11 +25,8 @@ func _ready():
 			con.set_value("AUDIO", AudioServer.get_bus_name(i), AudioServer.get_bus_volume_db(i))
 		con.save(OPT_PATH)
 
-
-#		SIGNAL
 func load_value(section:String, key:String):
 	return con.get_value(section, key)
 func save_value(section:String, key:String, value):
 	con.set_value(section, key, value)
 	con.save(OPT_PATH)
-

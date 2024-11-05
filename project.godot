@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalWorldEnvironment="*res://scenes/___GlobalWorldEnvironment.tscn"
+Saver="*res://scripts/___saver.gd"
 Config="*res://scripts/___config.gd"
 Transition="*res://scenes/___Transition.tscn"
 

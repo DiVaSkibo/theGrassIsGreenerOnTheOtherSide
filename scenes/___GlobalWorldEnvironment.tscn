@@ -2,7 +2,6 @@
 
 [sub_resource type="Environment" id="Environment_l0rrq"]
 background_mode = 3
-tonemap_mode = 3
 tonemap_white = 0.6
 glow_normalized = true
 glow_intensity = 4.0

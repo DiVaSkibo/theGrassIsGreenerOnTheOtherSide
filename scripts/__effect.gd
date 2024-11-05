@@ -1,6 +1,6 @@
 extends Area2D
 
-@export_range(0, 2000) var force := 300
+@export_range(0, 2000) var force := 280
 var is_boost : bool
 
 
@@ -23,7 +23,8 @@ func _physics_process(_delta):
 
 func _on_body_entered(body):
 	if is_boost and body.name == "Witch":
-		body.has_dash_access = true
+		if body.find_child("DashCoolDown").is_stopped() and body.find_child("DashDuration").is_stopped():
+			body.has_dash_access = true
 	elif not is_boost and body is CharacterBody2D:
 		body.hit.emit(1)
 

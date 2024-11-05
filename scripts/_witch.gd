@@ -21,6 +21,12 @@ var has_dash_access := true
 
 #		FUNC
 func _ready():
+	var saveresource := Saver.load_data()
+	if saveresource:
+		print(saveresource.health)
+		print(saveresource.position)
+		health = saveresource.health
+		position = saveresource.position
 	for i in health:
 		$Health.get_child(i).texture = load("res://just_test_sprites/1hp.png")
 	$AudioStreamPlayer2D.stream = [STEP_FLOOR, STEP_GRASS].pick_random()
